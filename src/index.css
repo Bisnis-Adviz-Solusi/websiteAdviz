@@ -36,7 +36,7 @@
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
+    --primary:  24 100% 50%;
     --primary-foreground: 220.9 39.3% 11%;
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
@@ -66,10 +66,16 @@
 }
 
 
+
+
 html {
-    font-family: sans-serif;
+   font-family: "Inter", serif;
     box-sizing: border-box;
   }
+
+  
+
+  
   
   *, *:before, *:after {
     box-sizing: inherit;
@@ -112,16 +118,14 @@ html {
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
-    perspective: 1000px;
-    -webkit-perspective: 1000px;
+    perspective: 600px;
+    -webkit-perspective: 600px;
   }
   
   .flip-box-front {
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
-    min-height: 495px;
-    
+    border-radius: 20px;
     -ms-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     -webkit-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
@@ -133,15 +137,15 @@ html {
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    min-height: 300px;
-    min-width: 570px;
-    margin-top: 89px;
+    height: 650px;
+    margin-top: -50px;
     -ms-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
     -webkit-transition: transform 0.7s cubic-bezier(.4,.2,.2,1);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    -webkit-backface-visibility: 400px;
+    backface-visibility: 400px;
   }
+
   
   
   
@@ -149,6 +153,8 @@ html {
     -ms-transform: rotateY(0deg);
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
+    height: 450px;
+    width: 450px;
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
@@ -161,6 +167,7 @@ html {
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    
   }
   
   .flip-box-back {
@@ -174,7 +181,9 @@ html {
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    
   }
+  
   
   .flip-box:hover .flip-box-back {
     -ms-transform: rotateY(0deg);
@@ -337,4 +346,8 @@ html {
   .card .details .center ul li a:hover {
   background: #ff3636;
   }
+
+
+
+
   

@@ -5,15 +5,15 @@ import React from 'react';
 const BusinessConsultantSection = () => {
   const companyTeam = [
     { 
-      name: "John Anderson", 
+      name: "Edric Kurniadi", 
       position: "CEO", 
-      image: "/api/placeholder/200/200",
-      bio: "An experienced leader with 15+ years in business consulting"
+      image: "https://static.wixstatic.com/media/35ce7a_7671fca6c89747af9aceb2cba91a3289~mv2.png/v1/fill/w_353,h_431,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Edric%20Kurniadi.png",
+      bio: "An experienced leader with years in business consulting"
     },
     { 
-      name: "Sarah Mitchell",  
-      position: "Chief Strategy Officer", 
-      image: "/api/placeholder/200/200",
+      name: "Tasya",  
+      position: "Chief IT Officer", 
+      image: "https://media.licdn.com/dms/image/v2/D5603AQEB7uXeRAMsLg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730348713548?e=1743638400&v=beta&t=iRJFzXDBt2DQl-QODnWtIUjRYQZhDqx3FAmsoPy0zy8",
       bio: "Expert in global business strategies and digital transformation"
     }
   ];
@@ -24,9 +24,9 @@ const BusinessConsultantSection = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 dark:bg-gray-900">
+    <div className="container mx-auto px-4 py-16 ">
       {/* Main Section */}
-      <section className="mb-24">
+      <section className="mb-24 mt-28 ">
         <motion.h1 
           initial="hidden"
           animate="visible"
@@ -49,8 +49,7 @@ const BusinessConsultantSection = () => {
               <h2 className="text-3xl font-bold dark:text-white">Strategic Business Goals</h2>
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Transform your organization with our data-driven approach combining 
-              industry expertise and innovative solutions for sustainable growth.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur reiciendis quas commodi, vel dolores facilis amet eligendi incidunt tempore nostrum iure minima accusantium natus delectus sint.
             </p>
           </motion.div>
 
@@ -70,8 +69,7 @@ const BusinessConsultantSection = () => {
               <div className="border-l-4 border-blue-500 dark:border-blue-400 pl-4">
                 <h3 className="text-xl font-semibold mb-2 dark:text-gray-100">Our Vision</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  To be the global leader in transformative business solutions that 
-                  drive sustainable success in the digital age.
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod amet iste minima dolorum, similique neque.
                 </p>
               </div>
 
@@ -138,8 +136,8 @@ const BusinessConsultantSection = () => {
 
             <ul className="space-y-6">
               {[
-                { icon: <Users />, text: '200+ Professional Consultants' },
-                { icon: <ChartLine />, text: '35+ Countries Coverage' },
+                { icon: <Users />, text: '50+ Professional Consultants' },
+                { icon: <ChartLine />, text: '25+ Citys Coverage' },
                 { icon: <Target />, text: '95% Client Retention Rate' }
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-4 p-4 bg-white dark:bg-gray-700 rounded-lg shadow-sm dark:shadow-none">

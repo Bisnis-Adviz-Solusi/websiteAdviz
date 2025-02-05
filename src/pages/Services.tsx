@@ -58,7 +58,7 @@ const OurServices = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="w-full py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800"
+      className="w-full py-16 md:py-24"
     >
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
@@ -67,7 +67,7 @@ const OurServices = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-          className="max-w-4xl mx-auto text-center mb-12 md:mb-20"
+          className="max-w-4xl mt-24 mx-auto text-center mb-12 md:mb-20"
         >
           <motion.h2 
             variants={itemVariants}
@@ -160,7 +160,7 @@ const OurServices = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, type: 'spring' }}
-            className="rounded-2xl shadow-xl p-6 md:p-12 max-w-6xl mx-auto bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 relative overflow-hidden"
+            className="rounded-2xl shadow-xl p-6 md:p-12 max-w-6xl mx-auto bg-gradient-to-br from-blue-50/50 to-green-50/50 dark:from-blue-900/50 dark:to-green-900/50  hover:shadow-2xl dark:shadow-gray-800/30 transition-shadow relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-green-50/30 dark:from-blue-900/20 dark:to-green-900/20" />
             

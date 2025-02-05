@@ -1,11 +1,11 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, BadgeDollarSign, Calculator, Wallet, BadgeEuro, Percent, Handshake, ChartArea, FileLineChart, AlignHorizontalDistributeCenter, Globe } from 'lucide-react';
+import { ArrowRight, Sparkles, BadgeDollarSign, Calculator, Wallet, BadgeEuro, Percent, Handshake, ChartArea, FileLineChart, AlignHorizontalDistributeCenter, Globe, Github, Twitter, Linkedin, Mail } from 'lucide-react';
 import { Html, OrbitControls, useProgress } from '@react-three/drei';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import darkBg from '../assets/bg3.svg';
 import { useTheme } from "@/components/theme-provider"; 
+import Bg from "../assets/bg.png"
 const Scene = () => {
   const gltf = useLoader(GLTFLoader, '/models/adviz.glb');
 
@@ -46,54 +46,7 @@ const Loader = () => {
     </Html>
   );
 };
-const ScrollLine = ({ scroll }: { scroll: number }) => {
-  const r = (1 - scroll) * 455 + scroll * 155; // Merah
-  const g = (1 - scroll) * 0 + scroll * 455; // Hijau
-  const b = (1 - scroll) * 255 + scroll * 0; // Biru
-  const strokeColor = `rgb(${r}, ${g}, ${b})`;
 
-  return (
-    <svg
-      viewBox="50 200 900 150"
-      className="w-screen -ml-36   absolute h-full"
-      style={{ filter: "url(#glow)" }}
-    >
-      {/* Multiple glowing paths */}
-      {[...Array(3)].map((_, i) => (
-        <path
-          key={i}
-          d={`M 50,${150 + i * 20} 
-              C 200,${100 + i * 30} 400,${200 + i * 50} 600,${150 + i * 20} 
-              S 900,${100 + i * 50} 1100,${200 + i * 20}`}
-          fill="none"
-          stroke={strokeColor}
-          strokeWidth={1 + i }
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeDasharray="1000"
-          strokeDashoffset={1000 - scroll * 4000}
-          style={{
-            transition: "stroke-dashoffset 0.4s ease-out, stroke 0.4s ease-out",
-          }}
-        />
-      ))}
-
-    
-      
-
-      {/* Enhanced glow effect */}
-      <defs>
-        <filter id="glow" x="-20%" y="-20%" width="140%" height="100%">
-          <feGaussianBlur stdDeviation="9" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-    </svg>
-  );
-};
 const FloatingIcon = ({ icon: Icon, color, delay, duration = 10 }: { icon: React.ElementType; color: string; delay: number; duration?: number }) => (
   <motion.div
     initial={{ opacity: 30, y: 30 }}
@@ -136,25 +89,7 @@ const FloatingIcon2 = ({ icon: Icon, color, delay, duration = 6 }: { icon: React
 
 const Herro = () => {
   const { theme } = useTheme(); 
-  const [scroll, setScroll] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = window.scrollY / totalHeight;
-      setScroll(Math.min(1, Math.max(0, progress)));
-    };
-
-    // Add smooth scroll behavior to document
-    document.documentElement.style.scrollBehavior = 'smooth';
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
-  }, []);
-  
   return (
     <motion.div
     key={theme}
@@ -163,8 +98,17 @@ const Herro = () => {
     exit={{ opacity: 0 }}
     transition={{ duration: 0.5 }}
     className="min-h-screen flex items-center relative overflow-hidden transition-all duration-300"
-
-  >
+   
+    
+  ><div 
+  className="absolute inset-0 z-0"
+  style={{
+    backgroundImage: `url(${Bg})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    opacity: 0.3  
+  }}
+/>
       {/* Animated Background Grid */}
       <motion.div 
         initial={{ opacity: 0 }}
@@ -187,9 +131,9 @@ const Herro = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h1 className="text-5xl lg:text-7xl -mt-28 font-bold">
-                <span className="bg-orange-500 font-serif text-transparent bg-clip-text">
-                  Welcome
+              <h1 className="text-4xl lg:text-7xl  font-bold">
+                <span className="bg-orange-500 text-transparent bg-clip-text">
+                  Welcome 
                 </span>
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
@@ -205,9 +149,9 @@ const Herro = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className=" text-sm lg:text-md leading-relaxed max-w-xl"
+              className="text-sm lg:text-lg  max-w-xl"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             </motion.p>
 
             <motion.div 
@@ -219,9 +163,9 @@ const Herro = () => {
               <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "#EA580C" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl flex items-center gap-3 hover:shadow-lg hover:shadow-orange-500/20 transition-all"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white rounded-xl flex items-center gap-3 hover:shadow-lg hover:shadow-orange-500/20 transition-all"
               >
-                Get Started
+                Launch Dashboard
                 <ArrowRight className="w-5 h-5" />
               </motion.button>
               <motion.button
@@ -230,10 +174,29 @@ const Herro = () => {
                 className="px-8 py-4 border border-orange-700/50 rounded-xl transition-all flex items-center gap-3 hover:border-orange-500/50"
               >
                 <Sparkles className="w-5 h-5" />
-                Learn More
+                Explore Features
               </motion.button>
-              <ScrollLine scroll={scroll} />
             </motion.div>
+{/* Social Links */}
+<div className="space-y-4">
+            <div className="flex space-x-4">
+              {[
+                { icon: Github, link: '#' },
+                { icon: Twitter, link: '#' },
+                { icon: Linkedin, link: '#' },
+                { icon: Mail, link: '#' }
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.link}
+                  whileHover={{ y: -3, scale: 1.1 }}
+                  className="p-2 rounded-lg bg-transparent hover:shadow-md hover:shadow-orange-600  transition-colors"
+                >
+                  <social.icon size={32} className="text-gray-400" />
+                </motion.a>
+              ))}
+            </div>
+          </div>
           </motion.div>
        
           {/* Right Side - 3D Visualization */}
@@ -246,11 +209,11 @@ const Herro = () => {
             {/* Decorative Elements */}
             <motion.div
               animate={{
-                scale: [1, 1.2, 1],
+                scale: [1.1, 1, 1.1],
                 rotate: [0, 360],
               }}
               transition={{
-                duration: 20,
+                duration: 15,
                 repeat: Infinity,
                 ease: 'linear',
               }}

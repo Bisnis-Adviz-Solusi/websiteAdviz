@@ -71,7 +71,7 @@ const ContactUs = () => {
   return (
     <div className='min-h-screen p-8 bg-gray-50 dark:bg-gray-900'>
       <div 
-        className="w-full max-w-7xl mx-auto backdrop-blur-md rounded-3xl p-8
+        className="w-full max-w-7xl mt-32 mx-auto backdrop-blur-md rounded-3xl p-8
                   bg-white/70 dark:bg-gray-800/80
                   border border-gray-200/50 dark:border-gray-700/50"
         style={{  
