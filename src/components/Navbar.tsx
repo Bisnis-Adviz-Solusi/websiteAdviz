@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { useTheme } from "@/components/theme-provider";
+import { Menu, X } from "lucide-react";
 import { Link } from 'react-router';
 import img from '../assets/logo.png';
+import Switch from './ui/switch';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
-  const { theme, setTheme } = useTheme();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   
@@ -41,9 +41,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+
 
   const navLinks = [
     { id: 'home', label: 'Home', path: '/' },
@@ -89,14 +87,12 @@ const Navbar = () => {
                 </Link>
               ))}  
               <div
-                onClick={toggleTheme}
-                className="flex items-center px-3 py-2 rounded-md cursor-pointer transition-colors text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+               
+                className=""
               >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5 text-orange-400" />
-                ) : (
-                  <Moon className="h-5 w-5 text-gray-600" />
-                )}
+                 <div className="" >
+      <Switch />
+    </div>
               </div>
             </div>
           </div>
@@ -139,20 +135,10 @@ const Navbar = () => {
                 </Link>
               ))}
               <div
-                onClick={toggleTheme}
+            
                 className="flex items-center px-3 py-2 rounded-md cursor-pointer transition-colors text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
               >
-                {theme === "dark" ? (
-                  <>
-                    <Sun className="h-5 w-5 mr-2 text-orange-400" />
-                    Light Mode
-                  </>
-                ) : (
-                  <>
-                    <Moon className="h-5 w-5 mr-2 text-gray-600" />
-                    Dark Mode
-                  </>
-                )}
+                    <Switch />
               </div>
             </div>
           </div>
@@ -163,3 +149,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+

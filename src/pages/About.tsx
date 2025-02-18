@@ -1,8 +1,114 @@
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { Users, Target, Building, ChartLine } from 'lucide-react';
 import { motion } from 'framer-motion';
-import React from 'react';
+
+
+const ScrollLine = React.memo(({ scroll }: { scroll: number }) => {
+  const pathRef = useRef<SVGPathElement>(null);
+  const [pathLength, setPathLength] = useState(0);
+
+  const strokeColor = useMemo(() => {
+    const endColor = [128, 0, 255];
+    const startColor = [255, 165, 0];
+    
+    const r = Math.round(startColor[0] + (endColor[0] - startColor[0]) * scroll);
+    const g = Math.round(startColor[1] + (endColor[1] - startColor[1]) * scroll);
+    const b = Math.round(startColor[2] + (endColor[2] - startColor[2]) * scroll);
+    
+    return `rgb(${r},${g},${b})`;
+  }, [scroll]);
+
+  useEffect(() => {
+    if (pathRef.current) {
+      const length = pathRef.current.getTotalLength();
+      setPathLength(length);
+    }
+  }, []);
+
+  return (
+    <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+      <svg
+        viewBox="0 10 150 150"
+        className="w-full h-full"
+        style={{ filter: "url(#glow)" }}
+      >
+        <path
+          ref={pathRef}
+          d="M 0,0 C 150,50 150,150 50,100 S -50,50 50,0"
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth={2.5}
+          strokeLinecap="round"
+          strokeDasharray={pathLength}
+          strokeDashoffset={pathLength - scroll * pathLength}
+        />
+        <path
+          ref={pathRef}
+           d="M 0,60 C 150,20 150,150 -20,100 S -20,40 0,0"
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth={1}
+          strokeLinecap="round"
+          strokeDasharray={pathLength}
+          strokeDashoffset={pathLength - scroll * pathLength}
+        />
+        <path
+          ref={pathRef}
+           d="M 150,10 C 50,0 150,150 -30,100 S -30,30 30,0"
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          strokeDasharray={pathLength}
+          strokeDashoffset={pathLength - scroll * pathLength}
+        />
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="28" />
+            <feMerge>
+              <feMergeNode />
+            </feMerge>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  );
+});
 
 const BusinessConsultantSection = () => {
+
+  const [scroll, setScroll] = useState(0);
+  const rafId = useRef<number>();
+  const totalHeightRef = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const calculateDimensions = () => {
+      totalHeightRef.current = document.documentElement.scrollHeight - window.innerHeight;
+    };
+
+    calculateDimensions();
+    window.addEventListener('resize', calculateDimensions);
+
+    const handleScroll = () => {
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
+      
+      rafId.current = requestAnimationFrame(() => {
+        const progress = window.scrollY / totalHeightRef.current;
+        setScroll(Math.min(1, Math.max(0, progress)));
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateDimensions);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
   const companyTeam = [
     { 
       name: "Edric Kurniadi", 
@@ -24,8 +130,12 @@ const BusinessConsultantSection = () => {
   };
 
   return (
+    <div  ref={containerRef}>
+        <ScrollLine scroll={scroll} />
     <div className="container mx-auto px-4 py-16 ">
+        
       {/* Main Section */}
+    
       <section className="mb-24 mt-28 ">
         <motion.h1 
           initial="hidden"
@@ -36,11 +146,11 @@ const BusinessConsultantSection = () => {
           Integrated Business Consulting Solutions
         </motion.h1>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div  className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Strategic Goals */}
           <motion.div 
             variants={fadeInVariants}
-            className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-green-50 dark:from-blue-900/50 dark:to-green-900/50 shadow-xl hover:shadow-2xl dark:shadow-gray-800/30 transition-shadow"
+            className="p-8 rounded-2xl bg-gradient-to-br from-blue-50/90 to-green-50/90 dark:from-blue-900/90 dark:to-green-900/90 shadow-xl hover:shadow-2xl dark:shadow-gray-800/30 transition-shadow"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="p-4 bg-blue-600 dark:bg-blue-400 rounded-xl">
@@ -151,6 +261,8 @@ const BusinessConsultantSection = () => {
           </motion.div>
         </div>
       </section>
+    </div>
+
     </div>
   );
 };

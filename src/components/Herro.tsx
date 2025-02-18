@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, BadgeDollarSign, Calculator, Wallet, BadgeEuro, Percent, Handshake, ChartArea, FileLineChart, AlignHorizontalDistributeCenter, Globe, Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import {  BadgeDollarSign, Calculator, Wallet, BadgeEuro, Percent, Handshake, ChartArea, FileLineChart, AlignHorizontalDistributeCenter, Globe} from 'lucide-react';
 import { Html, OrbitControls, useProgress } from '@react-three/drei';
 import { Canvas, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { useTheme } from "@/components/theme-provider"; 
 import Bg from "../assets/bg.png"
+import CardSosmed from './ui/cardSosmed';
+import { TypeAnimation } from "react-type-animation";
 const Scene = () => {
   const gltf = useLoader(GLTFLoader, '/models/adviz.glb');
 
@@ -88,11 +89,11 @@ const FloatingIcon2 = ({ icon: Icon, color, delay, duration = 6 }: { icon: React
 
 
 const Herro = () => {
-  const { theme } = useTheme(); 
+
 
   return (
     <motion.div
-    key={theme}
+
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
@@ -124,23 +125,32 @@ const Herro = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-10"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h1 className="text-4xl lg:text-7xl  font-bold">
+              <h1 className="text-4xl lg:text-5xl  font-bold">
                 <span className="bg-orange-500 text-transparent bg-clip-text">
-                  Welcome 
+                <TypeAnimation
+              sequence={[
+                "Welcome",
+                2000,
+                "Bisni Adviz Solution",
+                2000,
+              ]}
+              speed={50}
+              className="text-4xl lg:text-5xl font-bold"
+              repeat={Infinity}
+            />
                 </span>
                 <motion.span
                   animate={{ opacity: [0, 1, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="ml-2 text-orange-500"
-                >
-                  _
+                  className=" text-orange-500"
+                >_
                 </motion.span>
               </h1>
             </motion.div>
@@ -149,9 +159,9 @@ const Herro = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-sm lg:text-lg  max-w-xl"
+              className="text-sm font-sans lg:text-lg  max-w-xl"
             >
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.
             </motion.p>
 
             <motion.div 
@@ -160,42 +170,39 @@ const Herro = () => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="flex flex-wrap gap-4"
             >
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "#EA580C" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white rounded-xl flex items-center gap-3 hover:shadow-lg hover:shadow-orange-500/20 transition-all"
-              >
-                Launch Dashboard
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border border-orange-700/50 rounded-xl transition-all flex items-center gap-3 hover:border-orange-500/50"
-              >
-                <Sparkles className="w-5 h-5" />
-                Explore Features
-              </motion.button>
+<button
+  className="relative inline-flex shadow-lg h-12 active:scale-95 transistion overflow-hidden rounded-lg p-[3px] focus:outline-none"
+>
+  <span
+    className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#e7029a_0%,#f472b6_50%,#bd5fff_100%)]"
+  >
+  </span>
+  <span
+    className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg dark:bg-slate-950 bg-slate-100 px-7 text-sm font-medium dark:text-white text-black backdrop-blur-3xl gap-2 undefined"
+  >
+    Get Started
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      viewBox="0 0 448 512"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M429.6 92.1c4.9-11.9 2.1-25.6-7-34.7s-22.8-11.9-34.7-7l-352 144c-14.2 5.8-22.2 20.8-19.3 35.8s16.1 25.8 31.4 25.8H224V432c0 15.3 10.8 28.4 25.8 31.4s30-5.1 35.8-19.3l144-352z"
+      ></path>
+    </svg>
+  </span>
+</button>
+
+
+
             </motion.div>
 {/* Social Links */}
 <div className="space-y-4">
-            <div className="flex space-x-4">
-              {[
-                { icon: Github, link: '#' },
-                { icon: Twitter, link: '#' },
-                { icon: Linkedin, link: '#' },
-                { icon: Mail, link: '#' }
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.link}
-                  whileHover={{ y: -3, scale: 1.1 }}
-                  className="p-2 rounded-lg bg-transparent hover:shadow-md hover:shadow-orange-600  transition-colors"
-                >
-                  <social.icon size={32} className="text-gray-400" />
-                </motion.a>
-              ))}
-            </div>
+           <CardSosmed/>
           </div>
           </motion.div>
        

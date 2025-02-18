@@ -13,9 +13,10 @@ export const items = [
     },
     {
       title: 'Laba Kotor',
-      value: 1671010,
+      value: -1671010,
       description: 'Selisih antara pendapatan dan harga pokok penjualan, menunjukkan keuntungan sebelum dikurangi beban operasional.',
       isHighlight: true,
+      isNegative: true
     },
     {
       title: 'Beban Operasional:',

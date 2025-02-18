@@ -1,18 +1,75 @@
-import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 import Map, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
+import { OrbitControls, Stars } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
 
+// Separate component for the GLTF model
+const Scene = () => {
+  const gltf = useLoader(GLTFLoader, '/models/globe.glb');
+
+  return (
+    
+    <>
+     <ambientLight intensity={1.5} />
+     <directionalLight position={[-1.3, 6.0, 4.4]} castShadow intensity={0.8} />
+
+
+
+      <primitive
+  object={gltf.scene}
+  position={[0, -0.5, 0]}
+  castShadow
+  receiveShadow
+/>
+      <OrbitControls 
+        target={[0, -0.1, 0]}
+        enableZoom={false}
+        enablePan={false}
+        minPolarAngle={Math.PI / 2.5}
+        maxPolarAngle={Math.PI / 1.5}
+        autoRotate
+        autoRotateSpeed={2}
+      />
+    </>
+  );
+};
+// Animated stars background
+const StarBackground = () => {
+  const starsRef = useRef<THREE.Points>(null);
+  
+  useFrame(({ clock }) => {
+    if (starsRef.current) {
+      // Rotate around Y axis slowly
+      starsRef.current.rotation.y = clock.getElapsedTime() * 0.05;
+      // Add slight wobble on X and Z axes
+      starsRef.current.rotation.x = Math.sin(clock.getElapsedTime() * 0.2) * 0.1;
+      starsRef.current.rotation.z = Math.cos(clock.getElapsedTime() * 0.2) * 0.1;
+    }
+  });
+
+  return (
+    <points ref={starsRef}>
+     <Stars radius={100} depth={50} count={2000} factor={4}  />
+    </points>
+  );
+};
+
+
+// Rest of the code remains the same...
 const ContactUs = () => {
-  const token = import.meta.env.VITE_APP_MAPBOX_ACCESS_TOKEN;
   const [isDark, setIsDark] = useState(false);
+  const [, setHoverIndex] = useState<number | null>(null);
+  const token = import.meta.env.VITE_APP_MAPBOX_ACCESS_TOKEN;
 
   useEffect(() => {
     const checkTheme = () => {
       setIsDark(document.documentElement.classList.contains('dark'));
     };
-    
+
     checkTheme();
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
@@ -33,6 +90,12 @@ const ContactUs = () => {
         title: 'Gedung Arva Cikini',
       },
     ],
+  };
+
+  const mapContainerStyle = {
+    width: '100%',
+    height: '500px', 
+    borderRadius: '12px'
   };
 
   const contactItems = [
@@ -69,27 +132,24 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className='min-h-screen p-8 bg-gray-50 dark:bg-gray-900'>
-      <div 
-        className="w-full max-w-7xl mt-32 mx-auto backdrop-blur-md rounded-3xl p-8
-                  bg-white/70 dark:bg-gray-800/80
-                  border border-gray-200/50 dark:border-gray-700/50"
-        style={{  
-          boxShadow: isDark
-            ? "0px 20px 60px -20px rgba(79, 70, 229, 0.4)"
-            : "0px 20px 60px -20px rgba(59, 130, 246, 0.3)"
-        }}
-      >
+    <div className="min-h-screen p-8  dark:bg-slate-950 relative overflow-hidden">
+      {/* Background Stars */}
+      <div className="fixed inset-0 z-0">
+        <Canvas camera={{ position: [0, 0, 1] }}>
+          <StarBackground />
+        </Canvas>
+      </div>
+
+      {/* Rest of your component JSX... */}
+      <div className="relative z-10 w-full max-w-7xl mt-32 mx-auto rounded-3xl p-8  bg-white/30 dark:bg-slate-900/70 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
         {/* Company Profile Section */}
         <section className="relative py-12">
           <div className="relative container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-extrabold mb-3
-                            bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400
-                            bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
                 Contact Us
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl text-gray-600 dark:text-gray-300 animate-fade-in">
                 Building Tomorrow's Solutions Today
               </p>
             </div>
@@ -107,80 +167,99 @@ const ContactUs = () => {
                     Get in Touch
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 font-medium mb-8">
-                    We'd love to hear from you. Please fill out the form or contact us using the information below.
+                    We'd love to hear from you. Contact us using the information below.
                   </p>
                 </div>
 
                 <div className="space-y-6">
                   {contactItems.map((item, index) => (
-                    <motion.div
+                    <div
                       key={index}
-                      className="flex items-start space-x-4 p-4 rounded-xl
-                                bg-gray-50/50 dark:bg-gray-700/30
-                                hover:bg-white dark:hover:bg-gray-700/50
-                                transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
+                      onMouseEnter={() => setHoverIndex(index)}
+                      onMouseLeave={() => setHoverIndex(null)}
+                      className="flex items-start space-x-4 p-6 rounded-xl bg-gray-50/50 dark:bg-gray-700/30 
+                               hover:bg-white dark:hover:bg-gray-700/50 transition-all duration-300
+                               hover:shadow-lg hover:scale-102 transform cursor-pointer"
                     >
-                      <motion.div 
-                        className="flex-shrink-0 w-12 h-12 rounded-full backdrop-blur-sm flex items-center justify-center
-                                  border border-blue-200/30 dark:border-blue-400/20
-                                  bg-white/50 dark:bg-gray-600/50"
-                        whileHover={{ 
-                          rotate: 360,
-                          backgroundColor: isDark ? "rgba(251, 146, 60, 0.2)" : "rgba(59, 130, 246, 0.1)",
-                          transition: { duration: 0.5 }
-                        }}
-                      >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full backdrop-blur-sm flex items-center justify-center
+                                    border border-blue-200/30 dark:border-blue-400/20 bg-white/50 dark:bg-gray-600/50
+                                    hover:rotate-12 transition-transform duration-300">
                         {item.icon}
-                      </motion.div>
-                      <div className="space-y-1">
-                        <h3 className="font-semibold mb-1 text-blue-600 dark:text-blue-400">
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-semibold text-blue-600 dark:text-blue-400">
                           {item.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                           {item.content}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              {/* Map Section */}
-              <div className="p-2 m-5 rounded-lg border-2 border-gray-200/70 dark:border-gray-600/50
-                            bg-gray-100/50 dark:bg-gray-700/30">
-                <Map
-                  mapboxAccessToken={token}
-                  initialViewState={{
-                    longitude: mapConfig.longitude,
-                    latitude: mapConfig.latitude,
-                    zoom: mapConfig.zoom,
-                  }}
-                  style={{ width: '100%', height: '100%', borderRadius: '12px' }}
-                  mapStyle={isDark ? 
-                    "mapbox://styles/mapbox/dark-v11" : 
-                    "mapbox://styles/mapbox/streets-v12"}
-                >
-                  {mapConfig.markers.map((marker, index) => (
-                    <Marker
-                      key={index}
-                      longitude={marker.longitude}
-                      latitude={marker.latitude}
-                      anchor="bottom"
-                    >
-                      <div className="w-8 h-8 rounded-full flex items-center justify-center
-                                    bg-blue-600/90 dark:bg-orange-400/90 animate-pulse">
-                        <MapPin className="w-5 h-5 text-white dark:text-gray-900" />
-                      </div>
-                    </Marker>
-                  ))}
-                </Map>
+              {/* 3D Model Section */}
+              <div   
+                className="">
+                <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
+                  <Scene   />
+                </Canvas>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Map Section */}
+    <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
+      <div className="container mx-auto">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
+            Visit Our Office
+          </h2>
+          <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+            {token ? (
+              <Map
+                mapboxAccessToken={token}
+                initialViewState={{
+                  longitude: mapConfig.longitude,
+                  latitude: mapConfig.latitude,
+                  zoom: mapConfig.zoom,
+                }}
+                style={mapContainerStyle}
+                mapStyle={
+                  isDark
+                    ? "mapbox://styles/mapbox/dark-v11"
+                    : "mapbox://styles/mapbox/streets-v12"
+                }
+                interactive={true} // Pastikan interaktif diaktifkan
+              >
+                {mapConfig.markers.map((marker, index) => (
+                  <Marker
+                    key={index}
+                    longitude={marker.longitude}
+                    latitude={marker.latitude}
+                    anchor="bottom"
+                    offset={[0, -20]} 
+                  >
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600/90 dark:bg-orange-400/90 animate-pulse">
+                      <MapPin className="w-5 h-5 text-white dark:text-gray-900" />
+                    </div>
+                  </Marker>
+                ))}
+              </Map>
+            ) : (
+              <div className="h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-500">
+                Mapbox token not configured!
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
       </div>
     </div>
   );
 };
+
 export default ContactUs;

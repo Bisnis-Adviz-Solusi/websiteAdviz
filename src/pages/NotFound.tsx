@@ -17,7 +17,7 @@ const NotFoundPage = () => {
           {/* Main Content */}
           <div className="space-y-6">
             <h2 className="text-4xl font-semibold text-white">
-              Oops! Halaman Hilang di Luar Angkasa 🚀
+              Oops! page Not Pound 🚀
             </h2>
             
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
@@ -43,7 +43,7 @@ const NotFoundPage = () => {
               className="group relative inline-flex items-center px-8 py-4 bg-white bg-opacity-10 border border-white border-opacity-25 rounded-lg backdrop-blur-lg hover:bg-opacity-20 transition-all duration-300"
             >
               <span className="text-lg font-medium text-white">
-                🪐 Kembali ke Planet Beranda
+                🪐 Kembali ke Beranda
               </span>
               <div className="ml-2 -mr-1.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1.5 transition-all duration-300">
                 <svg 
