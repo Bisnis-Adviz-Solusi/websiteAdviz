@@ -59,7 +59,6 @@ const StarBackground = () => {
 };
 
 
-// Rest of the code remains the same...
 const ContactUs = () => {
   const [isDark, setIsDark] = useState(false);
   const [, setHoverIndex] = useState<number | null>(null);

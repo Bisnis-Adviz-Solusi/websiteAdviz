@@ -1,18 +1,21 @@
-
 import styled from 'styled-components';
 import { useTheme } from "@/components/theme-provider";
 
 const Switch = () => {
   const { theme, setTheme } = useTheme();
-
-
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
+
   return (
     <StyledWrapper>
       <label className="switch">
-        <input id="input" type="checkbox"    onClick={toggleTheme} defaultChecked={true} />
+        <input 
+          id="input" 
+          type="checkbox" 
+          onClick={toggleTheme} 
+          defaultChecked={theme === "dark"} 
+        />
         <div className="slider round">
           <div className="sun-moon">
             <svg id="moon-dot-1" className="moon-dot" viewBox="0 0 100 100">

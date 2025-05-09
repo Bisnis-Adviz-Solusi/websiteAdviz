@@ -1,15 +1,14 @@
-
 import { motion } from 'framer-motion';
-import { Github, Twitter, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import img from './../assets/logo.png'
+import { ExternalLink, MapPin, Mail, Phone } from 'lucide-react';
+import img from './../assets/logo.png';
+import CardSosmed from './ui/cardSosmed';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  // Hover animation for links
   const linkHoverVariants = {
     hover: { 
-      y: -3,
+      y: -2,
       color: '#00f2fe',
       transition: { duration: 0.2 }
     }
@@ -18,17 +17,30 @@ const Footer = () => {
   // Grid line animation
   const gridVariants = {
     animate: {
-      opacity: [0.2, 0.3, 0.2],
+      opacity: [0.1, 0.15, 0.1],
       transition: {
-        duration: 2,
+        duration: 3,
         repeat: Infinity,
-        ease: "linear"
+        ease: "easeInOut"
       }
     }
   };
 
+  // Section fade-in animation
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <footer className="relative bg-black text-white overflow-hidden">
+    <footer className="relative bg-gray-900 dark:bg-[#1A1A1A] text-white overflow-hidden">
+      {/* Gradient Top Border */}
+      <div className="h-1 w-full bg-gradient-to-r from-orange-600 via-cyan-400 to-orange-400"></div>
+      
       {/* Animated Background Grid */}
       <motion.div
         variants={gridVariants}
@@ -36,68 +48,121 @@ const Footer = () => {
         className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:24px_24px]"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
+      {/* Glowing Orbs */}
+      <div className="absolute top-40 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2
+              }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+        >
           {/* Brand Section */}
-          <div className="space-y-4">
-            <img className="h-10 w-32" alt="logo" src={img} />
-            <p className="text-gray-400 max-w-xs">
-              Creating tomorrow's digital experiences today. Explore the future with us.
+          <motion.div 
+            variants={fadeInUp}
+            className="space-y-6 w-96"
+          >
+            <img className="h-12 w-auto" alt="Adviz logo" src={img} />
+            <p className="text-gray-400 leading-relaxed">
+              Where numbers meet understanding. <p>Let's simplify finance together.</p>
             </p>
-          </div>
+            <div className="pt-4">
+              <h5 className="text-gray-300 font-medium mb-4">Connect With Us</h5>
+              <CardSosmed />
+            </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-300">Quick Links</h4>
-            <ul className="space-y-2">
-              {['About', 'Services', 'Projects', 'Contact'].map((item) => (
+          <motion.div 
+            variants={fadeInUp}
+            className="space-y-6 lg:ml-24"
+          >
+            <h4 className="text-lg font-semibold text-gray-200">Quick Links</h4>
+            <ul className="space-y-3">
+              {['About Us', 'Our Services', 'Case Studies', 'Contact'].map((item: string) => (
                 <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
-                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2">
-                    <ExternalLink size={14} />
+                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+                    <ExternalLink size={14} className="transform group-hover:translate-x-1 transition-transform" />
                     {item}
                   </a>
                 </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Social Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-300">Connect</h4>
-            <div className="flex space-x-4">
-              {[
-                { icon: Github, link: '#' },
-                { icon: Twitter, link: '#' },
-                { icon: Linkedin, link: '#' },
-                { icon: Mail, link: '#' }
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.link}
-                  whileHover={{ y: -3, scale: 1.1 }}
-                  className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-                >
-                  <social.icon size={20} className="text-cyan-400" />
-                </motion.a>
+          {/* Services */}
+          <motion.div 
+            variants={fadeInUp}
+            className="space-y-6"
+          >
+            <h4 className="text-lg font-semibold text-gray-200">Our Services</h4>
+            <ul className="space-y-3">
+              {['Financial Consultant', 'HR Management Consultant'].map((item: string) => (
+                <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
+                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                    {item}
+                  </a>
+                </motion.li>
               ))}
-            </div>
-          </div>
-        </div>
+            </ul>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div 
+            variants={fadeInUp}
+            className="space-y-6"
+          >
+            <h4 className="text-lg font-semibold text-gray-200">Contact Information</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-1 w-5 h-5 text-cyan-400 flex-shrink-0" />
+                <span className="text-gray-400">
+                Arva Building, 4th floor, Cikini Raya Street No. 60,
+                Jakarta Pusat, Provinsi DKI Jakarta
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                <a href="mailto:marketing@adviz.id" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                marketing@adviz.id
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
+                <a href="tel:+6281234567890" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                  +62 812 3456 7890
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <motion.p 
-              className="text-gray-400 text-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              © {currentYear} Adviz. All rights reserved.
-            </motion.p>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          className="mt-16 pt-8 border-t border-gray-800"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} <span className="text-cyan-400">Adviz</span>. All rights reserved.
+            </p>
             
-            <div className="flex space-x-6 text-sm text-gray-400">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
               {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
                 <motion.a
                   key={item}
@@ -111,12 +176,11 @@ const Footer = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 opacity-20" />
-      <div className="absolute bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-10" />
+     
+      {/* Bottom Gradient Line */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20" />
     </footer>
   );
 };

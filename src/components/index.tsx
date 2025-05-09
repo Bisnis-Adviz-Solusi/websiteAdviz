@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
-import Herro from "./Herro";
 import HillightCard from "./HillightCard";
 import Footer from "./Footer";
+import BottomNav from './BottomNav';
 
-
-export {Navbar, Herro,HillightCard, Footer, } 
+export {Navbar, HillightCard, Footer, BottomNav } 
