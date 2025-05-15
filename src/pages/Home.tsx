@@ -321,7 +321,7 @@ const Home = () => {
                     ref={headingRef}
                     data-speed="1.24"
                   >
-                    <span className="bg-gradient-to-r from-slate-400 via-slate-200 to-indigo-200 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r dark:from-slate-400 dark:via-slate-200 dark:to-indigo-200 from-indigo-900 via-sky-600 to-indigo-900 bg-clip-text text-transparent">
                       REPORT MADE
                     </span>{' '}
                     <span className="bg-gradient-to-r from-orange-400 via-orange-600 to-orange-400 bg-clip-text text-transparent">
@@ -388,7 +388,7 @@ const Home = () => {
               {/* Right Side - 3D Visualization */}
               <div
                 ref={model3DRef}
-                className="relative h-[880px] w-full ml-32 mb-24"
+                className="relative h-[680px] w-full ml-10 "
                 data-speed="1.9"
               >
                 {/* Floating Icons */}
@@ -409,7 +409,7 @@ const Home = () => {
                   data-speed="2.9"
                 >
                   <Canvas
-                    camera={{ position: [-0.5, 0.5, 2], fov: 35 }}
+                    camera={{ position: [-0.9, 0.5, 2], fov: 35 }}
                     className="rounded-full"
                   >
                     <Suspense fallback={<Loader />}>
