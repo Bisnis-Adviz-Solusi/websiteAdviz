@@ -130,11 +130,6 @@ const LoadingScreen = ({
       <div className="text-xl text-white font-medium mt-4">
         {createSplitText(messages[messageIndex])}
       </div>
-
-      {/* Loading progress bar */}
-      <div className="w-64 h-1 bg-gray-700 rounded-full mt-6 overflow-hidden">
-        <div className="h-full bg-orange-500 animate-progress-bar"></div>
-      </div>
     </div>
   );
 };

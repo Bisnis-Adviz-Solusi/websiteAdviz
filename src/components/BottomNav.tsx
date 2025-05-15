@@ -6,7 +6,7 @@ import {
   BiCalculator,
   BiBuildings
 } from 'react-icons/bi';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 
@@ -34,14 +34,40 @@ const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|:<>?";
 const getRandomChar = () => chars.charAt(Math.floor(Math.random() * chars.length));
 
 const Nav = () => {
+  const location = useLocation();
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showNav, setShowNav] = useState(false);
-  const [activeLink, setActiveLink] = useState('/');
+  const [activeLink, setActiveLink] = useState('');
   const [hoverLink, setHoverLink] = useState<string | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const labelRefs = useRef<{ [key: string]: HTMLSpanElement | null }>({});
   const scrambleTimelines = useRef<{ [key: string]: gsap.core.Timeline }>({});
+
+  // Set active link based on current path when component mounts or route changes
+  useEffect(() => {
+    const currentPath = location.pathname;
+    
+    // Find the matching nav link for current path
+    const matchingLink = navLinks.find(link => link.path === currentPath);
+    
+    // Set the active link to the matching link's id, or default to home if no match
+    if (matchingLink) {
+      setActiveLink(matchingLink.id);
+    } else {
+      // Handle potential nested routes by checking if current path starts with any nav link path
+      const matchingParentLink = navLinks.find(
+        link => link.path !== '/' && currentPath.startsWith(link.path)
+      );
+      
+      if (matchingParentLink) {
+        setActiveLink(matchingParentLink.id);
+      } else {
+        // Default to home if no match is found
+        setActiveLink('/');
+      }
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,6 +98,7 @@ const Nav = () => {
     setIsExpanded(true);
     setTimeout(() => setIsExpanded(false), 500);
   };
+  
   interface ScrambleParams {
     id: string;
   }
