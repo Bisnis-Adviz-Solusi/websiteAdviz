@@ -3,16 +3,30 @@ import { ExternalLink, MapPin, Mail, Phone } from 'lucide-react';
 import img from './../assets/logo.png';
 import CardSosmed from './ui/cardSosmed';
 
+interface NavLinkType {
+  id: string;
+  label: string;
+  path: string;
+}
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const linkHoverVariants = {
-    hover: { 
+    hover: {
       y: -2,
       color: '#00f2fe',
       transition: { duration: 0.2 }
     }
   };
+
+  const navLinks: NavLinkType[] = [
+    { id: 'about', label: 'About Us', path: '/about' },
+    { id: 'services', label: 'Our Services', path: '/services' },
+    { id: 'contact', label: 'Our Contact', path: '/contact' },
+    { id: 'simulation', label: 'Simulation', path: '/simulation' },
+    { id: 'case-studies', label: 'Case Studies', path: '/' },
+  ];
 
   // Grid line animation
   const gridVariants = {
@@ -29,18 +43,25 @@ const Footer = () => {
   // Section fade-in animation
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5 }
     }
   };
 
+  const getPathByLabel = (label: string): string => {
+    const navLink = navLinks.find(link => link.label === label ||
+      link.label === `Our ${label}` ||
+      link.label === `${label} Us`);
+    return navLink ? navLink.path : '#';
+  };
+
   return (
     <footer className="relative bg-gray-900 dark:bg-[#1A1A1A] text-white overflow-hidden">
       {/* Gradient Top Border */}
-      <div className="h-1 w-full bg-gradient-to-r from-orange-600 via-cyan-400 to-orange-400"></div>
-      
+      <div className="h-1 w-full bg-gradient-to-r from-orange-600 via-blue-700 to-orange-400"></div>
+
       {/* Animated Background Grid */}
       <motion.div
         variants={gridVariants}
@@ -54,7 +75,7 @@ const Footer = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         {/* Main Footer Content */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -70,7 +91,7 @@ const Footer = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
         >
           {/* Brand Section */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="space-y-6 w-96"
           >
@@ -78,14 +99,11 @@ const Footer = () => {
             <p className="text-gray-400 leading-relaxed">
               Where numbers meet understanding. <p>Let's simplify finance together.</p>
             </p>
-            <div className="pt-4">
-              <h5 className="text-gray-300 font-medium mb-4">Connect With Us</h5>
-              <CardSosmed />
-            </div>
+           
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="space-y-6 lg:ml-24"
           >
@@ -93,7 +111,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {['About Us', 'Our Services', 'Case Studies', 'Contact'].map((item: string) => (
                 <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
-                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors flex items-center gap-2 group">
+                  <a
+                    href={getPathByLabel(item)}
+                    className="text-gray-400  hover:text-orange-400 transition-colors flex items-center gap-2 group"
+                  >
                     <ExternalLink size={14} className="transform group-hover:translate-x-1 transition-transform" />
                     {item}
                   </a>
@@ -103,7 +124,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Services */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="space-y-6"
           >
@@ -111,7 +132,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {['Financial Consultant', 'HR Management Consultant'].map((item: string) => (
                 <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
-                  <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                  <a
+                    href={getPathByLabel('Services')}
+                    className="text-gray-400  hover:text-orange-400 transition-colors"
+                  >
                     {item}
                   </a>
                 </motion.li>
@@ -120,37 +144,40 @@ const Footer = () => {
           </motion.div>
 
           {/* Contact Info */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="space-y-6"
           >
             <h4 className="text-lg font-semibold text-gray-200">Contact Information</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="mt-1 w-5 h-5 text-cyan-400 flex-shrink-0" />
+                <MapPin className="mt-1 w-5 h-5 text-orange-200 flex-shrink-0" />
                 <span className="text-gray-400">
-                Arva Building, 4th floor, Cikini Raya Street No. 60,
-                Jakarta Pusat, Provinsi DKI Jakarta
+                  Arva Building, 4th floor, Cikini Raya Street No. 60,
+                  Jakarta Pusat, Provinsi DKI Jakarta
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <a href="mailto:marketing@adviz.id" className="text-gray-400 hover:text-cyan-400 transition-colors">
-                marketing@adviz.id
+                <Mail className="w-5 h-5 text-orange-200 flex-shrink-0" />
+                <a href="mailto:marketing@adviz.id" className="text-gray-400  hover:text-orange-400 transition-colors">
+                  marketing@adviz.id
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                <a href="tel:+6281234567890" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Phone className="w-5 h-5 text-orange-200 flex-shrink-0" />
+                <a href="tel:+6281234567890" className="text-gray-400  hover:text-orange-400 transition-colors">
                   +62 812 3456 7890
                 </a>
               </li>
+              <div className="pt-4">
+                <CardSosmed />
+              </div>
             </ul>
           </motion.div>
         </motion.div>
 
         {/* Bottom Bar */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -159,9 +186,9 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-gray-400 text-sm">
-              © {currentYear} <span className="text-cyan-400">Adviz</span>. All rights reserved.
+              Â© {currentYear} <span className="text-orange-200">Adviz</span>. All rights reserved.
             </p>
-            
+
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
               {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
                 <motion.a
@@ -169,7 +196,7 @@ const Footer = () => {
                   href="#"
                   whileHover="hover"
                   variants={linkHoverVariants}
-                  className="hover:text-cyan-400 transition-colors"
+                  className=" hover:text-orange-400 transition-colors"
                 >
                   {item}
                 </motion.a>
@@ -178,7 +205,7 @@ const Footer = () => {
           </div>
         </motion.div>
       </div>
-     
+
       {/* Bottom Gradient Line */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-20" />
     </footer>
