@@ -131,7 +131,7 @@ export const quickStatBoxes = [
 ];
 
 export const balanceSheetItems = [
-  { title: 'Assets', isHeader: true },
+  { title: 'Assets', isHeader: true, description: 'assets are economic resources owned by the company that can contribute to revenue. For example, production machines used to manufacture goods or buildings used as business premises are all assets that ultimately affect the companys profit and loss.' },
   { title: 'Current Assets', isHeader: true, description: 'Assets that are expected to be converted into cash within one year' },
   { title: 'Cash', value: 5050000, description: 'Total cash at the end of the month' },
   { title: 'Bank', value: 37900000, description: 'Total bank at the end of the month' },

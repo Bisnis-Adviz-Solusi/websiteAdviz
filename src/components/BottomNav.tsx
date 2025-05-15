@@ -166,7 +166,7 @@ const Nav = () => {
 
   return (
     <nav 
-      className={`fixed bottom-3  lg:bottom-6 w-full z-50 transition-all duration-500 ${
+      className={`fixed bottom-3 mb-5 lg:mb-5   lg:bottom-6 w-full z-50 transition-all duration-500 ${
         showNav ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
       }`}
     >
