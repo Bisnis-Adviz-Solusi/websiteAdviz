@@ -108,8 +108,8 @@ html {
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     perspective: 600px;
-    width: 450px;
-    height: 450px;
+    /* width: 450px;
+    height: 450px; */
     cursor: pointer;
   }
   
@@ -126,20 +126,22 @@ html {
     position: absolute;
     top: 0;
     left: 0;
+    
   }
   
   .flip-box-front {
 
-    height: 450px;
-    width: 450px;
+    /* height: 450px;
+    width: 450px; */
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    
   }
   
   .flip-box-back {
-    width: 200%;
-    height: 100%;
+    /* width: 200%;
+    height: 100%; */
     -ms-transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
@@ -171,7 +173,7 @@ html {
     position: absolute;
     left: 0;
     width: 100%;
-    padding: 60px;
+    /* padding: 60px; */
     transform: translateY(-50%) translateZ(120px) scale(.90);
     -webkit-transform: translateY(-50%) translateZ(120px) scale(.90);
     -ms-transform: translateY(-50%) translateZ(120px) scale(.90);
@@ -190,8 +192,8 @@ html {
     -webkit-transform-style: preserve-3d;
     perspective: 600px;
     -webkit-perspective: 600px;
-    width: 450px;
-    height: 450px;
+    /* width: 450px;
+    height: 450px; */
     cursor: pointer;
   }
   
@@ -214,16 +216,16 @@ html {
     -ms-transform: rotateY(0deg);
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    height: 450px;
-    width: 450px;
+    /* height: 450px;
+    width: 450px; */
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
   }
   
   .flip-box-back2 {
-    width: 200%;
-    height: 100%;
+    /* width: 200%;
+    height: 100%; */
     -ms-transform: rotateY(-180deg);
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
@@ -231,7 +233,6 @@ html {
     -ms-transform-style: preserve-3d;
     transform-style: preserve-3d;
     opacity: 300;
-    margin-top: -50px;
     visibility: hidden;
     pointer-events: none;
   }
@@ -254,8 +255,8 @@ html {
     .flip-box2 .inner2 {
     position: absolute;
     left: 0;
-    width: 100%;
-    padding: 60px;
+    /* width: 100%; */
+    /* padding: 60px; */
     outline: 1px solid transparent;
     -webkit-perspective: inherit;
     perspective: inherit;

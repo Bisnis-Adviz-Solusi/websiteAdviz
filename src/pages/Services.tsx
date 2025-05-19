@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { SplitText } from "gsap/all";
-import { Footer } from "@/components";
+import { BottomNav, Footer, Navbar } from "@/components";
 import herovid3 from "@/assets/herrovid2.mp4";
 import { AnimatePresence,motion } from "framer-motion";
 
@@ -344,6 +344,8 @@ const OurServices = () => {
 
   return (
     <div ref={smoothWrapper} className="smooth-wrapper overflow-hidden">
+       <Navbar/>
+  <BottomNav/>
       <div ref={smoothContent} className="smooth-content">
         <section 
           ref={sectionRef}
@@ -358,11 +360,14 @@ const OurServices = () => {
               data-speed="0.9"
             ><div className="absolute inset-0 z-0">
             <video
-              autoPlay
-              loop
-              muted
-              className="w-full h-full object-cover"
-              src={herovid3} 
+                  autoPlay
+                  loop
+                  muted
+                  className="w-full h-full object-cover"
+                  playsInline
+                  controls={false}
+                  disablePictureInPicture
+                  src={herovid3} 
             />
             {/* Overlay gradient for better text visibility */}
             <div className="absolute inset-0  bg-gradient-to-t item-center   from-black/90 to-black/40"></div>

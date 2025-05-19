@@ -23,7 +23,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { TypeAnimation } from "react-type-animation";
 import { useTheme } from "@/components/theme-provider";
-import { Footer, HillightCard } from '@/components';
+import { BottomNav, Footer, HillightCard, Navbar } from '@/components';
 import bg from '@/assets/bg6.mp4';
 import bg2 from '@/assets/bg8.mp4';
 
@@ -303,13 +303,19 @@ const Home = () => {
 
   return (
     <div ref={smoothWrapperRef} className="smooth-wrapper overflow-hidden">
+ <Navbar/>
+  <BottomNav/>
+       
       <div ref={smoothContentRef} className="smooth-content">
+        
+        
        {/* Hero Section */}
 <section
   ref={heroRef}
   className="min-h-screen flex items-center relative overflow-hidden transition-all duration-300"
   data-speed="0.8"
 >
+
   {/* Background video that changes based on theme */}
   <div className="absolute inset-0 z-0">
     <video
@@ -569,10 +575,10 @@ const Home = () => {
               </p>
             </div>
 
-            {/* Other Information Section - Improved */}
+            {/* Other Information Section */}
             <div
               ref={el => featureCardsRef.current[2] = el}
-              className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8 overflow-hidden relative feature-item"
+              className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8  relative feature-item"
             >
               <HillightCard />
 

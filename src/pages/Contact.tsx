@@ -6,7 +6,7 @@ import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
-import { Footer } from '@/components';
+import { BottomNav, Footer, Navbar } from '@/components';
 
 // Separate component for the GLTF model
 const Scene = () => {
@@ -133,6 +133,8 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen p-8  dark:bg-slate-950 relative overflow-hidden">
+       <Navbar/>
+  <BottomNav/>
       {/* Background Stars */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 1] }}>

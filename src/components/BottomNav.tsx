@@ -170,7 +170,7 @@ const Nav = () => {
         showNav ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
       }`}
     >
-      <div className="container mx-auto ">
+      <div className="container mx-auto lg:px-0 px-4">
         <div 
           className={`
             w-full dark:bg-blue-500/20 shadow-md dark:shadow-sky-500 shadow-orange-700 bg-gray-500/20 backdrop-blur-sm p-2 rounded-full max-w-[400px] mx-auto px-4 

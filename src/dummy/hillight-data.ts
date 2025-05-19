@@ -120,15 +120,7 @@ export const items = [
   }
 ];
 
-export const quickStatBoxes = [
-  {
-    backImage: 'https://s25.postimg.cc/hj4c4qnov/cta-3.png',
-    title: "Profit and loss",
-    description: "Analisis lengkap pendapatan dan pengeluaran perusahaan",
-    metric: "32.5%"
-  },
- 
-];
+
 
 export const balanceSheetItems = [
   { title: 'Assets', isHeader: true, description: 'assets are economic resources owned by the company that can contribute to revenue. For example, production machines used to manufacture goods or buildings used as business premises are all assets that ultimately affect the companys profit and loss.' },

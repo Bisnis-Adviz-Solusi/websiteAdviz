@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import herovid from "@/assets/herrovid4.mp4";
 import { TypeAnimation } from "react-type-animation";
-import { Footer } from "@/components";
+import { BottomNav, Footer, Navbar } from "@/components";
 import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -211,6 +211,8 @@ const BusinessConsultantSection = () => {
 
   return (
     <div ref={smoothWrapper} className="smooth-wrapper overflow-hidden">
+       <Navbar/>
+  <BottomNav/>
       <div ref={smoothContent} className="smooth-content">
         {/* Background animated pattern */}
         <div className="fixed inset-0 z-0 opacity-90 pointer-events-none">
@@ -259,11 +261,14 @@ const BusinessConsultantSection = () => {
         > 
         <div className="absolute inset-0 z-0">
         <video
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover"
-          src={herovid} 
+               autoPlay
+               loop
+               muted
+               className="w-full h-full object-cover"
+               playsInline
+               controls={false}
+               disablePictureInPicture
+               src={herovid} 
         />
         {/* Overlay gradient for better text visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/10"></div>
