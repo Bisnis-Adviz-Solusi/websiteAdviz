@@ -9,6 +9,7 @@ const HillightCard = () => {
   const [hoveredFlipbox, setHoveredFlipbox] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [openHoverCardIndex, setOpenHoverCardIndex] = useState<string | null>(null);
+  
 
   // Detect if we're on mobile or tablet
   useEffect(() => {
@@ -47,9 +48,11 @@ const HillightCard = () => {
       flipboxIndex,
     }: FlipBoxProps) => {
     return (
-      <div className="relative w-full"
-        onMouseEnter={() => setHoveredFlipbox(flipboxIndex)}
-        onMouseLeave={() => setHoveredFlipbox(null)}>
+ <div
+  className="relative w-full"
+  onMouseEnter={() => !isMobile && setHoveredFlipbox(flipboxIndex)}
+  onMouseLeave={() => !isMobile && setHoveredFlipbox(null)}
+>
         <div className="w-full">
           <div className="flip-box w-full md:h-[400px] h-[300px]">
             {/* Front Side */}
@@ -79,7 +82,16 @@ const HillightCard = () => {
             <div
               className="flip-box-back w-full md:w-[200%] md:h-[100%] h-[100%]"
             >
-              <div className="absolute inset-0" />
+               {/* tombol close hanya di mobile */}
+  {isMobile && (
+    <button
+      onClick={() => setHoveredFlipbox(null)}
+      className="absolute top-2 right-2 z-10 p-2 bg-gray-700/50 text-white rounded-full"
+    >
+      ✕
+    </button>
+  )}
+              <div className="absolute inset-0 " />
               <div className="inner mt-16 md:mt-0  p-2">
                 <div className="w-full md:w-96 max-w-lg backdrop-blur-sm rounded-xl overflow-auto shadow-2xl relative bg-white/90 dark:bg-gray-800/30">
                   <div className="border-b border-gray-200 dark:border-gray-700 p-1">
@@ -92,14 +104,14 @@ const HillightCard = () => {
                           Profit and Loss
                         </h2>
                         <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period: January 2024
+                          Period:  31 January 2024
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
                   
-                <div className="h-96 md:h-96 md:w-[90%] overflow-auto dark:bg-black mt-4 shadow-xl lg:p-4 md:p-3 bg-white rounded-xl">
+                <div className="h-96 md:h-96 md:w-[90%]  dark:bg-black mt-4 shadow-xl  p-2  bg-white rounded-xl">
                   {items.map((item, index) => (
                     <HoverCard key={index} openDelay={100} closeDelay={100} open={isMobile ? openHoverCardIndex === `pl-${index}` : undefined}>
                       <HoverCardTrigger asChild>
@@ -149,6 +161,14 @@ const HillightCard = () => {
                         align="end"
                         sideOffset={5}
                       >
+                         {isMobile && (
+    <button
+      onClick={() => setOpenHoverCardIndex(null)}
+      className="absolute top-2 right-2 z-20 p-1 bg-gray-600/75 text-white rounded-full"
+    >
+      ✕
+    </button>
+  )}
                         <div className="flex justify-between space-x-4">
                           <div className="space-y-1">
                             <div className="flex items-center gap-2">
@@ -202,17 +222,20 @@ const HillightCard = () => {
     flipboxIndex,
   }: FlipBox2Props) => {
     return (
-      <div className="relative w-full mt-24 md:mt-0"
-        onMouseEnter={() => setHoveredFlipbox(flipboxIndex)}
-        onMouseLeave={() => setHoveredFlipbox(null)}>
+     <div
+  className="relative w-full mt-24 md:mt-0"
+  onMouseEnter={() => !isMobile && setHoveredFlipbox(flipboxIndex)}
+  onMouseLeave={() => !isMobile && setHoveredFlipbox(null)}
+>
+
         <div className="w-full">
-          <div className="flip-box2 w-full md:h-[450px] h-[300px]">
+          <div className="flip-box2 w-full md:h-[450px] h-[150px]">
             {/* Front Side */}
             <div
               className="flip-box-front2 w-full md:h-[450px] h-[300px] shadow-xl shadow-blue-600"
               style={{ backgroundImage: `url(${frontImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80" />
+              <div className="absolute  inset-0 bg-gradient-to-b from-transparent via-black/60 to-black/80" />
               <div className="inner2 relative flex flex-col justify-between h-full p-4 md:p-6">
                 <div className="flex justify-between items-start">
                   {status === 'needs-review' && (
@@ -241,9 +264,17 @@ const HillightCard = () => {
   
             {/* Back Side */}
             <div
-              className="flip-box-back2 w-full md:w-[200%] md:h-[100%] h-[100%]"
+              className="flip-box-back2 w-full md:w-[200%] md:h-[100%] h-[80%]"
               style={{ marginLeft: isMobile ? '0' : '-23rem' }}
             >
+              {isMobile && (
+    <button
+      onClick={() => setHoveredFlipbox(null)}
+      className="absolute top-2 right-2 z-10 p-2 bg-gray-700/50 text-white rounded-full"
+    >
+      ✕
+    </button>
+  )}
               <div className="absolute inset-0" />
              <div className="inner2 h-full w-full lg:w-[80%]   p-2 ">
                 <div className="w-full md:w-96 max-w-lg backdrop-blur-sm rounded-xl overflow-hidden shadow-2xl relative bg-white/90 dark:bg-gray-800/90" >
@@ -259,19 +290,19 @@ const HillightCard = () => {
                           Balance Sheet
                         </h2>
                         <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period: January 2024
+                          Period:  As of 31 January 2024
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="h-72 md:h-96 overflow-auto dark:bg-black mt-4 shadow-xl p-2 md:p-3 bg-white rounded-xl">
+                <div className="h-[225%] md:h-96 overflow-auto dark:bg-black mt-4 shadow-xl p-2 md:p-3 bg-white rounded-xl">
                   {balanceSheetItems.map((item, index) => (
                     <HoverCard key={index} openDelay={100} closeDelay={100} open={isMobile ? openHoverCardIndex === `bs-${index}` : undefined}>
                       <HoverCardTrigger asChild>
                         <div
-                          className={`group relative h-[1.3rem] flex items-center cursor-pointer text-sm ${
+                          className={`group relative h-[1.6rem] flex items-center cursor-pointer text-xs md:text-md ${
                             item.isHighlight
                               ? 'bg-orange-50/80 dark:bg-orange-900/20'
                               : item.isSection
@@ -281,8 +312,8 @@ const HillightCard = () => {
                           onClick={() => isMobile && toggleHoverCard(`bs-${index}`)}
                         >
                           <div className="lg:w-96 w-full lg:ml-96 max-w-lg backdrop-blur-sm shadow-2xl relative bg-white/90 dark:bg-gray-800/50">
-                            <div className="flex items-center justify-between px-4">
-                              <div className="flex items-center gap-2 overflow-hidden">
+                            <div className="flex items-center justify-between md:px-4 px-0">
+                              <div className="flex items-center gap-1 overflow-hidden">
                                 <ChevronRight className="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 <span
                                   className={`transition-colors duration-300 ${
@@ -316,6 +347,14 @@ const HillightCard = () => {
                         align="start"
                         sideOffset={5}
                       >
+                         {isMobile && (
+    <button
+      onClick={() => setOpenHoverCardIndex(null)}
+      className="absolute top-2 right-2 z-20 p-1 bg-gray-600/75 text-white rounded-full"
+    >
+      ✕
+    </button>
+  )}
                         <div className="flex justify-between space-x-4">
                           <div className="space-y-1">
                             <div className="flex items-center gap-2">
@@ -437,7 +476,7 @@ const HillightCard = () => {
   };
 
   return (
-    <div className="min-h-screen mt-16 p-4 md:p-10 bg-transparent flex justify-center items-start mb-20 md:mb-40">
+    <div className="min-h-screen mt-16 p-4 md:mt-32 md:p-10 bg-transparent flex justify-center items-start mb-20 md:mb-40">
       <div className="w-full max-w-5xl space-y-8 md:space-y-12">
         {/* First Row - Flipbox 1 and Text */}
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row gap-8'} items-center md:items-start mb-12 md:mb-40`}>
@@ -461,7 +500,7 @@ const HillightCard = () => {
           <ExplanatoryCard type="bs" />
           
           {/* FlipBox 2 */}
-          <div className={`${isMobile ? 'w-full' : 'flex-1'} transform transition-transform duration-300 hover:scale-105 mb-24 md:mb-0`}>
+          <div className={`${isMobile ? 'w-full' : 'flex-1'} transform transition-transform duration-300 hover:scale-105 mb-40 md:mb-0`}>
             <FlipBox2
               frontImage={imgBL}
               title="Balance Sheet"

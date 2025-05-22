@@ -69,9 +69,13 @@ const BusinessConsultantSection = () => {
       smoother.current = ScrollSmoother.create({
         wrapper: smoothWrapper.current,
         content: smoothContent.current,
-        smooth: 4.5,
+        smooth: 1.5,
         effects: true,
-        normalizeScroll: true
+        normalizeScroll: true,
+        autoResize: true,
+        smoothTouch: 0.1,
+        ignoreMobileResize: true,
+        
       });
 
       // Hero section animation

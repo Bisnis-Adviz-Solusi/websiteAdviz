@@ -26,6 +26,8 @@ const Footer = () => {
     { id: 'contact', label: 'Our Contact', path: '/contact' },
     { id: 'simulation', label: 'Simulation', path: '/simulation' },
     { id: 'case-studies', label: 'Case Studies', path: '/' },
+    { id: 'privacy-policy', label: 'Privacy Policy', path: '/privacy-policy' },
+    { id: 'terms-of-service', label: 'Terms of Service', path: '/terms-of-service' },
   ];
 
   // Grid line animation
@@ -190,16 +192,17 @@ const Footer = () => {
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+              {['Privacy Policy', 'Terms of Service'].map((item) => (
                 <motion.a
                   key={item}
-                  href="#"
+                  href={getPathByLabel(item)}
                   whileHover="hover"
                   variants={linkHoverVariants}
                   className=" hover:text-orange-400 transition-colors"
                 >
                   {item}
                 </motion.a>
+                
               ))}
             </div>
           </div>

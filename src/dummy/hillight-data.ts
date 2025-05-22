@@ -143,11 +143,10 @@ export const balanceSheetItems = [
   
   { title: 'Total Assets', value: 487075000, isHighlight: true, description: 'Sum of all company assets' },
   
-  { title: 'Liabilities', isHeader: true },
-  { title: 'Current Liabilities', isHeader: true },
+  { title: 'Liabilities', isHeader: true, description: 'Liabilities are obligations that the company must pay to third parties. For example, if the company borrows money from a bank, the company is obliged to pay back the loan amount to the bank. This obligation is a liability.' },
+  { title: 'Current Liabilities', isHeader: true, description: 'Current Liabilities are short-term financial obligations that a company must settle within one year or within its normal operating cycle, whichever is longer.' },
   { title: 'Account Payables', value: 212975000, description: 'Amounts owed to suppliers' },
   { title: 'Total Liabilities', value: 212975000, isSection: true, description: 'Sum of all liabilities' },
-  
   { title: 'Equity', isHeader: true, description: 'Amount of capital that was placed to run the operations' },
   { title: 'Share Capital', value: 100000000, description: 'Value of issued shares' },
   { title: 'Retained Earnings', value: 174100000, description: 'Accumulated income/ loss from the beginning until current position' },

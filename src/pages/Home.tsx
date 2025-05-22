@@ -1,4 +1,4 @@
-import { useEffect, useRef, Suspense } from 'react';
+import { useEffect, useRef, Suspense,  } from 'react';
 import { motion } from 'framer-motion';
 // import { Smartphone, Layers, FileText } from 'lucide-react';
 import { BadgeDollarSign, 
@@ -11,9 +11,7 @@ import { BadgeDollarSign,
   FileLineChart, 
   AlignHorizontalDistributeCenter, 
   Globe, 
-  Smartphone, 
-  Layers, 
-  FileText, 
+  Smartphone,
   LucideIcon } from 'lucide-react';
 import { Html, OrbitControls, useProgress } from '@react-three/drei';
 import { Canvas, useLoader } from '@react-three/fiber';
@@ -23,7 +21,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { TypeAnimation } from "react-type-animation";
 import { useTheme } from "@/components/theme-provider";
-import { BottomNav, Footer, HillightCard, Navbar } from '@/components';
+import { BottomNav,  Footer,  HillightCard,} from '@/components';
 import bg from '@/assets/bg6.mp4';
 import bg2 from '@/assets/bg8.mp4';
 
@@ -121,6 +119,8 @@ const Home = () => {
   const featureCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const brandCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  
+
   // Initialize GSAP ScrollSmoother and animations
   useEffect(() => {
     const smoother = ScrollSmoother.create({
@@ -129,7 +129,10 @@ const Home = () => {
       wrapper: smoothWrapperRef.current,
       content: smoothContentRef.current,
       normalizeScroll: true,
-      ignoreMobileResize: true,
+      ignoreMobileResize: false,
+      smoothTouch: 0.1,
+      autoResize: true,
+      
     });
 
     // Hero section animations (keeping the existing animations)
@@ -143,7 +146,7 @@ const Home = () => {
         ease: "power3.out",
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top 80%",
+          start: "top 50%",
           toggleActions: "play none none reverse"
         }
       }
@@ -160,7 +163,7 @@ const Home = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: heroRef.current,
-          start: "top 70%",
+          start: "top 80%",
           toggleActions: "play none none reverse"
         }
       }
@@ -301,9 +304,11 @@ const Home = () => {
     }
   };
 
+ 
   return (
-    <div ref={smoothWrapperRef} className="smooth-wrapper overflow-hidden">
- <Navbar/>
+    <>
+      <div ref={smoothWrapperRef} className="smooth-wrapper overflow-hidden">
+
   <BottomNav/>
        
       <div ref={smoothContentRef} className="smooth-content">
@@ -381,7 +386,7 @@ const Home = () => {
         </div>
 
         {/* Main Description */}
-        <div className="" ref={headingRef} data-speed="1">
+        <div className="" ref={headingRef} data-speed="1.4">
           <div className="rounded-xl relative">
             <div className="relative group">
               <div className="absolute -inset-1 rounded-lg blur opacity-30 group-hover:opacity-95 transition duration-1000" />
@@ -498,14 +503,14 @@ const Home = () => {
                 >
                   <Smartphone className="h-5 w-5 text-white" />
                 </motion.span>
-                Meet Pak Budi's Smartphone Empire
+                Meet Budi's Smartphone Empire
               </h3>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                Pak Budi is the proud owner of BudiPhone, a thriving smartphone store in town. He has carefully selected three smartphone brands to cater to different customer needs:
+               Budi is the proud owner of BudiPhone, a thriving smartphone store in town. He has carefully selected three smartphone brands to cater to different customer needs:
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                For example Pak Budi have 3 brand:
+               Currently BudiPhone is selling 3 brands
               </p>
 
               {/* Smartphone Brands Cards - New Component */}
@@ -560,7 +565,7 @@ const Home = () => {
               </div>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                To complement his smartphone sales, Pak Budi also offers essential accessories: chargers, cases, earphones, and more - ensuring that every customer finds everything they need in one place.
+                To complement his smartphone sales, Budi also offers essential accessories: chargers, cases, earphones, and more - ensuring that every customer finds everything they need in one place.
               </p>
             </div>
 
@@ -581,123 +586,91 @@ const Home = () => {
               className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8  relative feature-item"
             >
               <HillightCard />
-
-              {/* Improved decorative elements */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
-
-              <h3 className="text-2xl font-bold text-gray-700 dark:text-gray-200 mb-8 relative z-10">Other Information</h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-1 gap-6 relative z-10">
-                <motion.div
-                  ref={el => featureCardsRef.current[3] = el}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white/5 border border-white/10 p-6 rounded-xl relative overflow-hidden feature-item"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-purple-500/5" />
-                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-6 flex items-center relative z-10">
-                    <FileText className="w-5 h-5 mr-2 text-orange-400" /> Profit & Loss Exclusions
-                  </h4>
-
-                  <div className="space-y-4 relative z-10">
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      For simplicity, the following items are <span className="font-semibold">not included</span> in the Profit & Loss statement examples:
-                    </p>
-
-                    {[
-                      "Other Income / Expenses",
-                      "Income Tax"
-                    ].map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
-                        className="flex items-center p-3 bg-white/5 border border-white/10 rounded-lg"
-                      >
-                        <div className={`w-2 h-2 rounded-full bg-orange-500 mr-3`}></div>
-                        <span className="text-gray-600 dark:text-gray-300">{item}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <motion.div
-                    className="absolute bottom-4 right-4 w-24 h-24 opacity-20"
-                    animate={{
-                      rotate: 360,
-                    }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="url(#blueGradient)" strokeWidth="8" />
-                      <defs>
-                        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#60A5FA" />
-                          <stop offset="100%" stopColor="#7C3AED" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </motion.div>
-                </motion.div>
-
-                <motion.div
-                  ref={el => featureCardsRef.current[4] = el}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white/5 border border-white/10 p-6 rounded-xl relative overflow-hidden feature-item"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-orange-500/5" />
-                  <h4 className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-6 flex items-center relative z-10">
-                    <Layers className="w-5 h-5 mr-2 text-pink-400" /> Balance Sheet Elements
-                  </h4>
-
-                  <div className="space-y-4 relative z-10">
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
-                      In the <span className="font-semibold">Balance Sheet</span>, some elements such as:
-                    </p>
-
-                    {[
-                      "Prepayments",
-                      "Long Term Liabilities"
-                    ].map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
-                        className="flex items-center p-3 bg-white/5 border border-white/10 rounded-lg"
-                      >
-                        <div className={`w-2 h-2 rounded-full bg-pink-500 mr-3`}></div>
-                        <span className="text-gray-600 dark:text-gray-300">{item}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <motion.div
-                    className="absolute bottom-4 right-4 w-24 h-24 opacity-20"
-                    animate={{
-                      rotate: 360,
-                    }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  >
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="url(#pinkGradient)" strokeWidth="8" />
-                      <defs>
-                        <linearGradient id="pinkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#EC4899" />
-                          <stop offset="100%" stopColor="#F59E0B" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </motion.div>
-                </motion.div>
-              </div>
             </div>
           </div>
-        </section>
-        <Footer />
+          {/* Challenge Section */}
+      {/* Challenge Section */}
+<section   ref={heroRef} data-speed="1.4" className="py-20 mt-10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900 text-white rounded-3xl relative overflow-hidden">
+  {/* Futuristic Background Elements */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-32 h-32 border border-cyan-400 rounded-full animate-pulse"></div>
+    <div className="absolute top-20 right-20 w-24 h-24 border border-purple-400 rounded-full animate-ping"></div>
+    <div className="absolute bottom-10 left-1/4 w-16 h-16 border border-blue-400 rounded-full animate-bounce"></div>
+    <div className="absolute bottom-20 right-1/3 w-20 h-20 border border-pink-400 rounded-full animate-pulse"></div>
+  </div>
+  
+  {/* Grid Pattern Overlay */}
+  <div className="absolute inset-0 opacity-5" 
+       style={{
+         backgroundImage: `
+           linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+           linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
+         `,
+         backgroundSize: '40px 40px'
+       }}>
+  </div>
+  
+  {/* Glowing Border Effect */}
+  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-sm"></div>
+  
+  <div className="container mx-auto px-4 text-center relative z-10">
+    {/* Title with Futuristic Styling */}
+    <div className="relative mb-8">
+      <h2  className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        Challenge: Can You Rebuild the Original Balance Sheet?
+      </h2>
+      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
+    </div>
+    
+    {/* Description with Neo Cards */}
+    <div  className="space-y-8 mb-12">
+      <div className="backdrop-blur-sm bg-white/5 border border-cyan-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20">
+        <p className="text-xl opacity-90 leading-relaxed">
+          Think you have what it takes to reconstruct the original balance sheet from the clues?
+        </p>
+      </div>
+      
+      <div className="backdrop-blur-sm bg-white/5 border border-purple-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/20">
+        <p className="text-xl opacity-90 leading-relaxed">
+          If you're up for the challenge, drop us an email or message us directly. We'll send you the full case details and see if you can uncover the financial story behind the numbers.
+        </p>
       </div>
     </div>
+    
+    {/* Action Buttons */}
+    <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-8">
+      <a href="mailto:education@adviz.id" 
+         className="group relative inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105">
+        <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span className="relative z-10">Contact Us</span>
+        <div className="absolute inset-0 border border-cyan-400/50 rounded-full animate-pulse"></div>
+      </a>
+      
+      <div className="text-gray-300 font-light">or</div>
+      
+      <a href="https://wa.me/+62-12345678" 
+         className="group relative inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105">
+        <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <span className="relative z-10">WhatsApp Us</span>
+        <div className="absolute inset-0 border border-purple-400/50 rounded-full animate-pulse"></div>
+      </a>
+    </div>
+    
+    {/* Privacy Notice */}
+    <div className="backdrop-blur-sm bg-white/5 border border-gray-400/20 rounded-xl p-6 max-w-4xl mx-auto">
+      <p className="text-sm leading-relaxed opacity-80 text-gray-300">
+        Privacy Notice: Your submission and contact details will be used solely for the purpose of this challenge. We respect your privacy and will not share or use your privacy and will not share or use your data for marketing, distribution, or any other unrelated activities.
+      </p>
+    </div>
+  </div>
+  
+  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-20 bg-gradient-to-t from-cyan-500/10 to-transparent rounded-b-3xl"></div>
+</section>
+        </section>
+       <Footer/>
+      </div>
+    </div>
+    </>
   );
 };
 
