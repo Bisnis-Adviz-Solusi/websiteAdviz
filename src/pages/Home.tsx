@@ -590,7 +590,7 @@ const Home = () => {
           </div>
           {/* Challenge Section */}
       {/* Challenge Section */}
-<section   ref={heroRef} data-speed="1.4" className="py-20 mt-10 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-900 text-white rounded-3xl relative overflow-hidden">
+<section  className="py-20 mt-10 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white rounded-3xl relative overflow-hidden">
   {/* Futuristic Background Elements */}
   <div className="absolute inset-0 opacity-10">
     <div className="absolute top-10 left-10 w-32 h-32 border border-cyan-400 rounded-full animate-pulse"></div>
@@ -616,14 +616,14 @@ const Home = () => {
   <div className="container mx-auto px-4 text-center relative z-10">
     {/* Title with Futuristic Styling */}
     <div className="relative mb-8">
-      <h2  className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
         Challenge: Can You Rebuild the Original Balance Sheet?
       </h2>
       <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
     </div>
     
-    {/* Description with Neo Cards */}
-    <div  className="space-y-8 mb-12">
+    {/* Description*/}
+    <div className="space-y-8 mb-12">
       <div className="backdrop-blur-sm bg-white/5 border border-cyan-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20">
         <p className="text-xl opacity-90 leading-relaxed">
           Think you have what it takes to reconstruct the original balance sheet from the clues?
@@ -637,7 +637,7 @@ const Home = () => {
       </div>
     </div>
     
-    {/* Action Buttons */}
+    {/* Action Buttons*/}
     <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-8">
       <a href="mailto:education@adviz.id" 
          className="group relative inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105">
