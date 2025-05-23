@@ -58,7 +58,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -74,10 +74,10 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden backdrop-blur-lg rounded-lg m-2 border border-gray-200/50 dark:border-gray-700/50">
+          <div className="lg:hidden backdrop-blur-lg rounded-lg m-2 border border-gray-200/50 dark:border-gray-700/50">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {/* Switch Button for Mobile Menu */}
-              <div className="flex items-center px-3 py-2 rounded-md cursor-pointer transition-colors text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
+              <div className="flex items-center px-3 py-2 rounded-lg cursor-pointer transition-colors text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">
                 <Switch />
               </div>
             </div>

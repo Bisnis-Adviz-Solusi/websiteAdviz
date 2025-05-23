@@ -21,7 +21,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { TypeAnimation } from "react-type-animation";
 import { useTheme } from "@/components/theme-provider";
-import { BottomNav,  Footer,  HillightCard,} from '@/components';
+import { BottomNav,  ChallengeSection,  Footer,  HilightMoblieCard, HillightCard, Navbar,} from '@/components';
 import bg from '@/assets/bg6.mp4';
 import bg2 from '@/assets/bg8.mp4';
 
@@ -111,7 +111,7 @@ const Home = () => {
   // Refs for GSAP animations
   const smoothWrapperRef = useRef<HTMLDivElement>(null);
   const smoothContentRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLElement>(null);
   const headingRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -123,18 +123,25 @@ const Home = () => {
 
   // Initialize GSAP ScrollSmoother and animations
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      smooth: 2.5,
-      effects: true,
-      wrapper: smoothWrapperRef.current,
-      content: smoothContentRef.current,
-      normalizeScroll: true,
-      ignoreMobileResize: false,
-      smoothTouch: 0.1,
-      autoResize: true,
-      
-    });
+    const isMobileDevice = window.matchMedia("(max-width: 768px)").matches;
+    interface GSAPScrollSmoother {
+      kill: () => void;
+    }
+    let smoother: GSAPScrollSmoother | undefined;
 
+    if (!isMobileDevice) {
+      smoother = ScrollSmoother.create({
+        smooth: 2.5,
+        effects: true,
+        wrapper: smoothWrapperRef.current,
+        content: smoothContentRef.current,
+        normalizeScroll: true,
+        ignoreMobileResize: false,
+        smoothTouch: 0.1,
+        autoResize: true,
+      });
+    }
+    
     // Hero section animations (keeping the existing animations)
     gsap.fromTo(
       headingRef.current,
@@ -185,9 +192,7 @@ const Home = () => {
       }
     );
 
-    // Features section animations - Enhanced
     if (featuresRef.current) {
-      // Animate the section title and description
       gsap.fromTo(
         featuresRef.current.querySelector('.feature-heading'),
         { opacity: 0, y: 50 },
@@ -308,6 +313,7 @@ const Home = () => {
   return (
     <>
       <div ref={smoothWrapperRef} className="smooth-wrapper overflow-hidden">
+        <Navbar/>
 
   <BottomNav/>
        
@@ -411,7 +417,7 @@ const Home = () => {
       {/* Right Side - 3D Visualization - Hidden on mobile, visible on tablet and desktop */}
       <div
         ref={model3DRef}
-        className="hidden md:block relative h-[400px] lg:h-[680px] w-full md:ml-0 lg:ml-10"
+        className="hidden lg:block relative h-[400px] lg:h-[680px] w-full md:ml-0 lg:ml-10"
         data-speed="1.9"
       >
         {/* Floating Icons */}
@@ -427,7 +433,7 @@ const Home = () => {
         <FloatingIcon2 icon={ChartArea} color="dark:text-gray-600 text-gray-400 top-40 lg:top-60 left-5 lg:left-10" delay={0.4} />
 
         {/* 3D Canvas */}
-        <div className="absolute inset-0"
+        <div className="absolute inset-0 "
           ref={model3DRef}
           data-speed="2.9"
         >
@@ -470,7 +476,7 @@ const Home = () => {
 
           <div className="max-w-7xl mx-auto relative">
             {/* Section Header */}
-            <div className="text-center mb-20 mt-24 feature-heading">
+            <div className="text-center mb-20 feature-heading">
               <motion.div
                 variants={pulseVariants}
                 animate="pulse"
@@ -581,91 +587,26 @@ const Home = () => {
             </div>
 
             {/* Other Information Section */}
-            <div
-              ref={el => featureCardsRef.current[2] = el}
-              className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8  relative feature-item"
-            >
-              <HillightCard />
-            </div>
+           <div ref={el => featureCardsRef.current[2] = el}
+               className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-8 relative feature-item">
+
+           {/* only show on Laptop/PC */}
+           <div className="hidden lg:block">
+           <HillightCard />
+          </div>
+
+           {/* only show on Tablet dan Handphone */}
+           <div className="block lg:hidden mb-10">
+           <HilightMoblieCard />
+           </div>
+
+</div>
+
           </div>
           {/* Challenge Section */}
-      {/* Challenge Section */}
-<section  className="py-20 mt-10 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white rounded-3xl relative overflow-hidden">
-  {/* Futuristic Background Elements */}
-  <div className="absolute inset-0 opacity-10">
-    <div className="absolute top-10 left-10 w-32 h-32 border border-cyan-400 rounded-full animate-pulse"></div>
-    <div className="absolute top-20 right-20 w-24 h-24 border border-purple-400 rounded-full animate-ping"></div>
-    <div className="absolute bottom-10 left-1/4 w-16 h-16 border border-blue-400 rounded-full animate-bounce"></div>
-    <div className="absolute bottom-20 right-1/3 w-20 h-20 border border-pink-400 rounded-full animate-pulse"></div>
-  </div>
-  
-  {/* Grid Pattern Overlay */}
-  <div className="absolute inset-0 opacity-5" 
-       style={{
-         backgroundImage: `
-           linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-           linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px)
-         `,
-         backgroundSize: '40px 40px'
-       }}>
-  </div>
-  
-  {/* Glowing Border Effect */}
-  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 blur-sm"></div>
-  
-  <div className="container mx-auto px-4 text-center relative z-10">
-    {/* Title with Futuristic Styling */}
-    <div className="relative mb-8">
-      <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-        Challenge: Can You Rebuild the Original Balance Sheet?
-      </h2>
-      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full"></div>
-    </div>
-    
-    {/* Description*/}
-    <div className="space-y-8 mb-12">
-      <div className="backdrop-blur-sm bg-white/5 border border-cyan-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/20">
-        <p className="text-xl opacity-90 leading-relaxed">
-          Think you have what it takes to reconstruct the original balance sheet from the clues?
-        </p>
-      </div>
-      
-      <div className="backdrop-blur-sm bg-white/5 border border-purple-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/20">
-        <p className="text-xl opacity-90 leading-relaxed">
-          If you're up for the challenge, drop us an email or message us directly. We'll send you the full case details and see if you can uncover the financial story behind the numbers.
-        </p>
-      </div>
-    </div>
-    
-    {/* Action Buttons*/}
-    <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-8">
-      <a href="mailto:education@adviz.id" 
-         className="group relative inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50 hover:scale-105">
-        <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-        <span className="relative z-10">Contact Us</span>
-        <div className="absolute inset-0 border border-cyan-400/50 rounded-full animate-pulse"></div>
-      </a>
-      
-      <div className="text-gray-300 font-light">or</div>
-      
-      <a href="https://wa.me/+62-12345678" 
-         className="group relative inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-full text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105">
-        <span className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-        <span className="relative z-10">WhatsApp Us</span>
-        <div className="absolute inset-0 border border-purple-400/50 rounded-full animate-pulse"></div>
-      </a>
-    </div>
-    
-    {/* Privacy Notice */}
-    <div className="backdrop-blur-sm bg-white/5 border border-gray-400/20 rounded-xl p-6 max-w-4xl mx-auto">
-      <p className="text-sm leading-relaxed opacity-80 text-gray-300">
-        Privacy Notice: Your submission and contact details will be used solely for the purpose of this challenge. We respect your privacy and will not share or use your privacy and will not share or use your data for marketing, distribution, or any other unrelated activities.
-      </p>
-    </div>
-  </div>
-  
-  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-20 bg-gradient-to-t from-cyan-500/10 to-transparent rounded-b-3xl"></div>
-</section>
+          <div ref={descriptionRef} data-speed="1.4" className="relative z-10 lg:mx-24 mt-20 lg:mt-0">
+            <ChallengeSection />
+          </div>
         </section>
        <Footer/>
       </div>

@@ -64,7 +64,7 @@ const HillightCard = () => {
               <div className="inner relative flex flex-col justify-between h-full p-4 md:p-6">
                 <div className="flex justify-between items-start">
                   {status === 'needs-review' && (
-                    <div className="bg-amber-500/20 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
+                    <div className="dark:bg-amber-500/20  backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 text-amber-300" />
                       <span className="text-xs font-medium text-amber-100">Needs Review</span>
                     </div>
@@ -91,8 +91,8 @@ const HillightCard = () => {
       ✕
     </button>
   )}
-              <div className="absolute inset-0 " />
-              <div className="inner mt-16 md:mt-0  p-2">
+              <div className="absolute inset-0"/>
+              <div className="inner mt-16 md:mt-0 p-2">
                 <div className="w-full md:w-96 max-w-lg backdrop-blur-sm rounded-xl overflow-auto shadow-2xl relative bg-white/90 dark:bg-gray-800/30">
                   <div className="border-b border-gray-200 dark:border-gray-700 p-1">
                     <div className="flex items-center space-x-4">
