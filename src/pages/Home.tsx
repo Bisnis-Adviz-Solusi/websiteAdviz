@@ -362,7 +362,7 @@ const Home = () => {
             <span className="absolute -bottom-3 left-0 h-[3px] w-0 bg-gradient-to-r from-transparent dark:via-cyan-400 via-orange-700 to-transparent gsap-underline-1" />
             <span className="absolute bottom-[-5px] left-0 h-[2px] w-0 bg-gradient-to-r from-transparent dark:orange-400 via-orange-700 to-transparent opacity-70 gsap-underline-2" />
 
-            <span className="absolute inset-0 blur-md bg-gradient-to-r dark:from-cyan-400/20 dark:to-purple-500/5 from-orange-900/5 to-orange-900/5 gsap-glow" />
+            {/* <span className="absolute inset-0 blur-md bg-gradient-to-r dark:from-cyan-400/20 dark:to-blue-500/5 from-orange-900/5 to-orange-900/5 gsap-glow" /> */}
           </h1>
         </div>
 
@@ -403,12 +403,12 @@ const Home = () => {
                     sequence={[
                       "Gain expert insights into balance sheets, income statements, and cash flow reports. Develop practical, hands-on financial analysis skills to make smarter business decisions.",
                     ]}
-                    speed={70}
+                    speed={40}
                     className="w-full h-full"
                   />
                 </span>
               </div>
-              <span className="absolute inset-0 blur-lg bg-gradient-to-r dark:from-cyan-400/20 dark:to-purple-500/20 from-orange-900/0 to-orange-400/0" />
+              {/* <span className="absolute inset-0 blur-lg bg-gradient-to-r dark:from-cyan-400/20 dark:to-blue-500/20 from-orange-900/0 to-orange-400/0" /> */}
             </div>
           </div>
         </div>
@@ -458,7 +458,7 @@ const Home = () => {
         >
           {/* Improved decorative elements */}
           <div className="absolute inset-0 opacity-20">
-            <div className="bg-gradient-1 absolute top-0 right-0 w-2/5 h-2/5 bg-gradient-to-br from-orange-500 to-purple-500 rounded-full blur-3xl" />
+            <div className="bg-gradient-1 absolute top-0 right-0 w-2/5 h-2/5 bg-gradient-to-br from-orange-500 to-blue-500 rounded-full blur-3xl" />
             <div className="bg-gradient-2 absolute bottom-0 left-0 w-2/5 h-2/5 bg-gradient-to-tr from-pink-500 to-orange-500 rounded-full blur-3xl" />
           </div>
 
@@ -505,7 +505,7 @@ const Home = () => {
                 <motion.span
                   variants={floatVariants}
                   animate="float"
-                  className="inline-flex mr-3 h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-purple-500 shadow-lg"
+                  className="inline-flex mr-3 h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-blue-500 shadow-lg"
                 >
                   <Smartphone className="h-5 w-5 text-white" />
                 </motion.span>
@@ -532,7 +532,7 @@ const Home = () => {
                   {
                     name: "Brand B",
                     description: "Feature-rich devices with cutting-edge technology",
-                    color: "from-purple-500 to-indigo-600",
+                    color: "from-blue-500 to-indigo-600",
                     icon: "📲",
                     features: ["Versatile features", "Great cameras", "Expandable storage"]
                   },
@@ -548,8 +548,10 @@ const Home = () => {
                     key={index}
                     ref={el => brandCardsRef.current[index] = el}
                     whileHover={{ y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-                    className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 overflow-hidden shadow-lg transition-all duration-300"
+                    className="bg-white/10 dark:bg-slate-900 backdrop-blur-md rounded-xl border border-white/20 overflow-hidden shadow-lg transition-all duration-300"
+                    
                   >
+                    
                     <div className={`bg-gradient-to-r ${brand.color} h-2 w-full`}></div>
                     <div className="p-6">
                       <div className="flex justify-between items-center mb-4">

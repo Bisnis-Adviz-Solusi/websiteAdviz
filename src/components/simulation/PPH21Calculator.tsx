@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import SalaryCalculator from './SalaryCalculator';
+import Navbar from '../Navbar';
+import { BottomNav, Footer } from '..';
 
 interface FormData {
   gajiPokok: string;
@@ -109,6 +111,9 @@ const PPH21Calculator: React.FC = () => {
   };
 
   return (
+    <>
+        <Navbar/>
+        <BottomNav/>
     <div className="min-h-screen py-24 p-4 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto relative ">
         
@@ -242,6 +247,8 @@ const PPH21Calculator: React.FC = () => {
       </div>
     <SalaryCalculator/>
     </div>
+    <Footer/>
+    </>
   );
 };
 

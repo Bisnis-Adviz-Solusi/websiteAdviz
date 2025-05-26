@@ -9,15 +9,15 @@ const challengeSection = () => {
   <div className="absolute inset-0 opacity-90" 
        style={{
          backgroundImage: `
-           linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 2px),
-           linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 2px)
+           linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 0.5px),
+           linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 0.5px)
          `,
          backgroundSize: '40px 40px'
        }}>
   </div>
   
   {/* Glowing Border Effect */}
-  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r dark:from-blue-500/20 from-white via-slate-200 to-slate-200 dark:via-purple-500/20 dark:to-pink-500/20 blur-sm"></div>
+  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r dark:from-blue-500/20 from-white via-slate-200 to-slate-200 dark:via-blue-500/20 dark:to-pink-500/20 blur-sm"></div>
   
   <div className="container mx-auto px-4 text-center relative z-10">
     {/* Title */}
@@ -36,7 +36,7 @@ const challengeSection = () => {
         </p>
       </div>
       
-      <div className="backdrop-blur-sm bg-black/5 border border-purple-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-400/20">
+      <div className="backdrop-blur-sm bg-black/5 border border-blue-400/30 rounded-2xl p-6 max-w-4xl mx-auto hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-400/20">
         <p className="text-xl opacity-90 leading-relaxed">
           If you're up for the challenge, drop us an email or message us directly. We'll send you the full case details and see if you can uncover the financial story behind the numbers.
         </p>
@@ -49,7 +49,7 @@ const challengeSection = () => {
     </div>
     
     {/* Privacy Notice */}
-    <div className="backdrop-blur-sm   bg-black/5  border border-gray-400/20 rounded-xl p-6 max-w-4xl mx-auto">
+    <div className="backdrop-blur-sm   bg-white/20  border border-gray-400/20 rounded-xl p-6 max-w-4xl mx-auto">
       <p className="text-sm leading-relaxed opacity-80 text-black  dark:text-gray-300">
         Privacy Notice: Your submission and contact details will be used solely for the purpose of this challenge. We respect your privacy and will not share or use your privacy and will not share or use your data for marketing, distribution, or any other unrelated activities.
       </p>

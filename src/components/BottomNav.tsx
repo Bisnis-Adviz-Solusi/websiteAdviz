@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { 
   BiHomeAlt2, 
-  BiBriefcase,
+  // BiBriefcase,
   BiEnvelope, 
   BiCalculator,
-  BiBuildings
+  // BiBuildings
 } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router';
 import gsap from 'gsap';
@@ -23,8 +23,8 @@ interface NavLinkType {
 }
 
 const navLinks: NavLinkType[] = [
-  { id: 'about', label: 'About', path: '/about', icon: BiBuildings },
-  { id: 'services', label: 'Services', path: '/services', icon: BiBriefcase },
+  // { id: 'about', label: 'About', path: '/about', icon: BiBuildings },
+  // { id: 'services', label: 'Services', path: '/services', icon: BiBriefcase },
   { id: '/', label: 'Home', path: '/', icon: BiHomeAlt2 },
   { id: 'contact', label: 'Contact', path: '/contact', icon: BiEnvelope },
   { id: 'simulation', label: 'Simulation', path: '/simulation', icon: BiCalculator },
@@ -173,7 +173,7 @@ const Nav = () => {
       <div className="container mx-auto lg:px-0 px-4">
         <div 
           className={`
-            w-full dark:bg-blue-500/20 shadow-md dark:shadow-sky-500 shadow-orange-700 bg-gray-500/20 backdrop-blur-sm p-2 rounded-full max-w-[400px] mx-auto px-4 
+            w-full dark:bg-blue-500/20 shadow-md dark:shadow-sky-500 shadow-orange-700 bg-gray-500/20 backdrop-blur-sm p-2 rounded-full max-w-[220px] mx-auto px-4 
             flex justify-between items-center text-white border border-white/10 
              transition-all duration-300
             ${isExpanded ? 'scale-105' : 'scale-100'}
