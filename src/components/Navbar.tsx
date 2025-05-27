@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 // import { Link } from 'react-router';
 import img from '../assets/logo.png';
 import Switch from './ui/switch';
+import LangSwitch from './ui/langSwitch';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,7 +46,7 @@ const Navbar = () => {
         ${isScrolled ? 'bg-transparent  shadow-lg' : 'bg-transparent'}
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 backdrop-blur-sm">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="">
@@ -53,7 +54,8 @@ const Navbar = () => {
           </div>
 
           {/* Switch Button */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-8">
+            <LangSwitch />
             <Switch />
           </div>
 

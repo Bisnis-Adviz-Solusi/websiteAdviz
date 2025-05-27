@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { balanceSheetItems, items } from '../dummy/hillight-data';
 import imgFL from '../assets/PL.png';
 import imgBL from '../assets/BS.png';
+import { useTranslation } from 'react-i18next';
 
 const HillightCard = () => {
   const [hoveredFlipbox, setHoveredFlipbox] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [openHoverCardIndex, setOpenHoverCardIndex] = useState<string | null>(null);
-  
+  const { t } = useTranslation();
 
   // Detect if we're on mobile or tablet
   useEffect(() => {
@@ -101,11 +102,12 @@ const HillightCard = () => {
                       </div>
                       <div>
                         <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200">
-                          Profit and Loss
+                          {t("home.hilightCard.profitLoss")}
                         </h2>
                         <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period:  31 January 2024
+                          {t("home.hilightCard.periodProfit")}
                         </p>
+
                       </div>
                     </div>
                   </div>
@@ -136,7 +138,7 @@ const HillightCard = () => {
                                       : 'text-gray-600 dark:text-gray-400'
                                   } ${item.isSection ? 'font-medium' : ''} group-hover:text-black font-mono dark:group-hover:text-blue-400`}
                                 >
-                                  {item.title}
+                                 { t(item.title)}
                                 </span>
                               </div>
                               {item.value !== undefined && (
@@ -174,11 +176,11 @@ const HillightCard = () => {
                             <div className="flex items-center gap-2">
                               <HelpCircle className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                               <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                                {item.title}
+                                {t(item.title)}
                               </h4>
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap break-words">
-                              {item.description}
+                              {t(item.description)}
                             </p>
                             {item.value !== undefined && (
                               <div className="flex items-center gap-2 mt-2 pt-2 border-t border-blue-500/20 dark:border-blue-400/20">
@@ -287,11 +289,12 @@ const HillightCard = () => {
                       </div>
                       <div>
                         <h2 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200">
-                          Balance Sheet
+                          {t("home.hilightCard.balanceSheet")}
                         </h2>
                         <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period:  As of 31 January 2024
+                          {t("home.hilightCard.period")}
                         </p>
+
                       </div>
                     </div>
                   </div>
@@ -322,7 +325,7 @@ const HillightCard = () => {
                                       : 'text-gray-600 dark:text-gray-400'
                                   } ${item.isSection ? 'font-medium' : ''} group-hover:text-black dark:group-hover:text-blue-400`}
                                 >
-                                  {item.title}
+                                  {t(item.title)}
                                 </span>
                               </div>
                               {item.value !== undefined && (
@@ -360,11 +363,11 @@ const HillightCard = () => {
                             <div className="flex items-center gap-2">
                               <HelpCircle className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                               <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                                {item.title}
+                                {t(item.title)}
                               </h4>
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300">
-                              {item.description}
+                              {t(item.description)}
                             </p>
                             {item.value !== undefined && (
                               <div className="flex items-center gap-2 mt-2 pt-2 border-t border-blue-500/20 dark:border-blue-400/20">
@@ -453,7 +456,8 @@ const HillightCard = () => {
                   <div className="group overflow-hidden relative after:duration-500 before:duration-500 duration-500 hover:after:duration-500 hover:after:translate-x-24 hover:before:translate-y-12 hover:before:-translate-x-32 hover:duration-500 after:absolute after:bg-sky-700 after:rounded-full after:blur-xl after:bottom-20 after:right-16 after:w-12 after:h-12 before:absolute before:bg-sky-400 before:rounded-full before:blur-xl before:top-20 before:right-16 before:w-12 before:h-12 hover:rotate-12 flex justify-center items-center h-28 w-80 dark:bg-neutral-900/50 bg-slate-100/60 rounded-2xl outline outline-slate-400 -outline-offset-8 ml-4">
                     <div className="z-10 flex flex-col items-center">
                       <span className="text-slate-400 text-3xl md:text-4xl font-bold">
-                        {type === 'pl' ? 'Profit and Loss' : 'Balance Sheet'}
+                        {type === 'pl' ? t('home.hilightCard.profitLoss') : t('home.hilightCard.balanceSheet')}
+
                       </span>
                     </div>
                   </div>
@@ -461,11 +465,11 @@ const HillightCard = () => {
                 
                 <div className="text-lg p-5 leading-8 text-gray-700 transition-all duration-500 group-hover:text-white">
                   <p className="text-gray-600 dark:text-gray-100 text-lg leading-relaxed">
-                    {type === 'pl' 
-                      ? 'A statement that summarize revenue, cost of goods sold, expenses and any other items'
-                      : 'A statement of the assets, liabilities, and equity at one point of time'
-                    }
+                    {type === 'pl'
+                      ? t("home.hilightCard.descPL")
+                      : t("home.hilightCard.descBS")}
                   </p>
+
                 </div>
               </div>
             </div>
@@ -484,8 +488,8 @@ const HillightCard = () => {
           <div className={`${isMobile ? 'w-full' : 'flex-1'} transform transition-transform duration-300 hover:scale-105 mb-8 md:mb-0`}>
             <FlipBox
               frontImage={imgFL}
-              title="Profit & Loss Statement For January"
-              description="BudiPhone Profit and Loss Statement For January"
+              title={t("home.hilightCard.flipbox.pl.title")}
+              description={t("home.hilightCard.flipbox.pl.description")}
               flipboxIndex={1}
             />
           </div>
@@ -503,8 +507,8 @@ const HillightCard = () => {
           <div className={`${isMobile ? 'w-full' : 'flex-1'} transform transition-transform duration-300 hover:scale-105 mb-40 md:mb-0`}>
             <FlipBox2
               frontImage={imgBL}
-              title="Balance Sheet"
-              description="Statement of assets, liabilities, and equity"
+              title={t("home.hilightCard.flipbox.bs.title")}
+              description={t("home.hilightCard.flipbox.bs.description")}
               flipboxIndex={2}
             />
           </div>

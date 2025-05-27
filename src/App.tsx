@@ -3,7 +3,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { BrowserRouter as Router, Routes, Route } from 'react-router';
 import { About, Contact, NotFoundPage, OurServices, LoadingScreen, Home, TermsOfService, PrivacyPolicy } from "./pages";
 import { PPH21Calculator } from "./components/simulation";
-// import "./i18n";
+import { Navbar } from "./components";
+import "./i18n/i18nConfig";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ function App() {
               backgroundPosition: 'center',
             }}
           >
+              <Navbar />
      
             <div className="relative z-10">
               <Routes>

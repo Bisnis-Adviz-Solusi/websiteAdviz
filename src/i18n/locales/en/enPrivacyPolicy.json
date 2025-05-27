@@ -1,0 +1,95 @@
+{
+  "introduction": {
+    "title": "Introduction",
+    "description": "We respect your privacy rights and are committed to protecting the personal information you entrust to us. This Privacy Policy explains in detail the types of information we collect, how we use it, who we may share it with, and your choices regarding that information."
+  },
+
+  "dataTypes": {
+    "title": "Types of Personal Data",
+    "description": "We collect and process the following types of personal information:",
+    "personalInfoTitle": "A. Personal Information",
+    "personalInfoList": {
+      "name": "Name",
+      "email": "Email",
+      "address": "Address",
+      "number": "Phone Number"
+    },
+    "autoInfoTitle": "B. Automatic Information",
+    "autoInfoList": {
+      "ip": "IP Address",
+      "log": "Log Data",
+      "interaction": "Interaction Data",
+      "device": "Device and Browser Type",
+      "duration": "Usage Duration",
+      "payment": "Payment History and Payment Instruments (if available)"
+    },
+    "thirdPartyTitle": "C. Third-Party Information",
+    "thirdPartyContent": "We may receive information from third parties such as business partners, service providers, or social media integrations (e.g., when you log in using your Google account)."
+  },
+
+  "usage": {
+    "title": "Information Usage",
+    "desc": "The personal information you provide may be used for various purposes to improve the quality of our services and your experience, including:",
+    "usage1": "1. Personalizing the User Experience",
+    "1content": "We use information such as business needs, industry fields, and client goals to tailor our consulting approach to your specific needs.",
+    "usage2": "2. Project Communication Management",
+    "2content": "Contact information and project details are used to facilitate efficient communication during collaboration, including the delivery of proposals, reports, and other documents.",
+    "usage3": "3. Client Relationship Maintenance",
+    "3content": "We may use your information to build long-term relationships, including inviting you to events, webinars, or sending newsletters and updates relevant to your field.",
+    "usage4": "4. Product or Service Development",
+    "4content": "The collected information may be used to analyze trends and market needs, allowing us to refine our service offerings, methodologies, and approaches. To support this, we use third-party analytics services such as Google Analytics, which help us understand how our site is used. Data collected through these services is aggregated, not used to identify individuals directly, and may be processed outside the jurisdiction of Indonesia in accordance with each provider's policies. We are not responsible for the privacy policies of these third parties and recommend you review their policies directly."
+  },
+
+  "consent": {
+    "title": "Consent to Data Use",
+    "description": "By accessing our website through any device or means, filling out forms, contacting our team, using our consulting services either online or offline, or through other communications (including email, phone, or in-person meetings), you consent to your personal data being collected, stored, used, and shared by:",
+    "list": {
+      "bussinessPartners": "Business Partners",
+      "thirdParty": "Third Parties working with us professionally for service development and management",
+      "authorities": "Authorized bodies under applicable legal provisions"
+    }
+  },
+
+  "dataTransfer": {
+    "title": "Cross-Border Data Transfer",
+    "par1": "Adviz may transfer your personal information to countries outside your country of residence. This occurs when our consulting services involve international entities, cross-border projects, or the use of service providers and professional partners based in various countries.",
+    "par2": "Additionally, data transfers may occur if you access our services from outside the jurisdiction in which Adviz operates."
+  },
+
+  "rights": {
+    "title": "User Rights",
+    "desc": "As a user, you have the following rights regarding your personal data:",
+    "list": {
+      "par1": "The right to access your personal data",
+      "par2": "The right to request correction of inaccurate data",
+      "par3": "The right to restrict data processing",
+      "par4": "The right to object to data processing",
+      "par5": "The right to request data deletion",
+      "par6": "The right to request information on whether we process your data"
+    },
+    "conclude": "To exercise your rights, please reach out to us through the contact information provided on our website. We will respond in accordance with applicable data protection laws."
+  },
+
+  "security": {
+    "title": "Data Security",
+    "par1": "We implement appropriate technical and organizational security measures to protect your personal data from unauthorized or unlawful processing, loss, destruction, or accidental damage.",
+    "par2": "However, while we strive to protect your personal information, we cannot guarantee absolute security of the data you transmit to us. Internet transmission is always at risk, and although we do our best to safeguard your data, we cannot ensure its security during transmission.",
+    "par3": "We regularly review and update our security practices to ensure your information is protected in accordance with current industry standards."
+  },
+
+  "updates": {
+    "title": "Policy Updates",
+    "par1": "This Privacy Policy may be updated from time to time by Adviz, in line with business needs, operational changes, or applicable legal requirements.",
+    "par2": "The latest version will always be available on our website, and you are deemed to have accepted the changes by continuing to access or use our services after the policy is updated."
+  },
+
+  "title": "Privacy Policy",
+  "subTitle": "PT Bisnis Adviz Solusi is committed to protecting your privacy and personal data. This document outlines our data collection and usage practices.",
+  "toc": "Table of Contents",
+
+  "final": {
+    "contactUs": "Contact Us",
+    "contactDesc": "If you have any questions or concerns about our Privacy Policy or how we handle your data, please don’t hesitate to contact us.",
+    "lastUpdated": "Last updated: May 20, 2025"
+  }
+}

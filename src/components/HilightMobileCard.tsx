@@ -2,10 +2,12 @@ import { TrendingUp, HelpCircle, ChevronRight, ArrowRight, } from 'lucide-react'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { useState, useEffect } from 'react';
 import { balanceSheetItems, items } from '../dummy/hillight-data';
+import { useTranslation } from 'react-i18next';
 
 const HilightMoblieCard = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openHoverCardIndex, setOpenHoverCardIndex] = useState<string | null>(null);
+  const { t } = useTranslation();
   
 
   useEffect(() => {
@@ -71,10 +73,10 @@ const HilightMoblieCard = () => {
                       </div>
                       <div>
                         <h2 className="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">
-                          Profit and Loss
+                          {t("home.hilightCard.profitLoss")}
                         </h2>
                         <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period:  31 January 2024
+                          {t("home.hilightCard.periodProfit")}
                         </p>
                       </div>
                     </div>
@@ -192,10 +194,10 @@ const HilightMoblieCard = () => {
                       </div>
                       <div>
                         <h2 className="text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-200">
-                          Balance Sheet
+                          {t("home.hilightCard.balanceSheet")}
                         </h2>
                         <p className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 mt-1">
-                          Period:  As of 31 January 2024
+                          {t("home.hilightCard.period")}
                         </p>
                       </div>
                     </div>

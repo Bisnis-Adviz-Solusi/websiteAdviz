@@ -1,0 +1,93 @@
+{
+  "introduction": {
+    "title": "Pendahuluan",
+    "description": "Kami menghargai hak privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda percayakan kepada kami. Kebijakan Privasi ini menjelaskan secara rinci jenis informasi yang kami kumpulkan, bagaimana kami menggunakannya, dengan siapa kami dapat membagikannya, serta pilihan yang Anda miliki terkait informasi tersebut."
+  },
+
+  "dataTypes": {
+    "title": "Jenis-Jenis Data Pribadi",
+    "description": "Kami mengumpulkan dan memproses jenis informasi pribadi sebagai berikut:",
+    "personalInfoTitle": "A. Informasi Personal",
+    "personalInfoList": {
+      "name": "Nama",
+      "email": "Email",
+      "address": "Alamat",
+      "number": "Nomor Telepon"
+    },
+    "autoInfoTitle": "B. Informasi Otomatis",
+    "autoInfoList": {
+      "ip": "Alamat IP",
+      "log": "Data Log",
+      "interaction": "Data Interaksi",
+      "device": "Tipe perangkat dan browser",
+      "duration": "Durasi penggunaan",
+      "payment": "Riwayat pembayaran dan alat pembayaran (jika tersedia)"
+    },
+    "thirdPartyTitle": "C. Informasi Pihak Ketiga",
+    "thirdPartyContent": "Kami dapat menerima informasi dari pihak ketiga seperti mitra bisnis, penyedia layanan, atau integrasi media sosial (misalnya saat Anda login menggunakan akun Google)."
+  },
+
+  "usage": {
+    "title": "Penggunaan Informasi",
+    "desc": "Informasi pribadi yang Anda berikan kepada kami dapat digunakan untuk berbagai keperluan yang bertujuan meningkatkan kualitas layanan dan pengalaman Anda sebagai pengguna, antara lain:",
+    "usage1": "1. Personalisasi Pengalaman Pengguna",
+    "1content": "Kami menggunakan informasi seperti kebutuhan bisnis, bidang industri, dan tujuan klien untuk menyesuaikan pendekatan konsultasi kami sesuai dengan kebutuhan spesifik Anda.",
+    "usage2": "2. Manajemen Komunikasi Proyek",
+    "2content": " Informasi kontak dan detail proyek digunakan untuk memfasilitasi komunikasi yang efisien selama berlangsungnya kerja sama, termasuk pengiriman proposal, laporan, dan dokumen kerja lainnya.",
+    "usage3": "3. Pemeliharaan Hubungan Klien",
+    "3content": " Kami dapat menggunakan informasi Anda untuk membangun relasi jangka panjang, termasuk mengundang Anda ke acara, webinar, atau mengirimkan buletin dan pembaruan yang relevan dengan bidang Anda.",
+    "usage4": "4. Pengembangan Produk atau Layanan",
+    "4content": " Informasi yang dikumpulkan dapat digunakan untuk melakukan analisis tren dan kebutuhan pasar, sehingga kami dapat menyempurnakan penawaran layanan, metodologi, dan pendekatan kami. Untuk mendukung tujuan ini, kami menggunakan layanan analitik pihak ketiga seperti Google Analytics, yang membantu kami memahami bagaimana situs kami digunakan. Data yang dikumpulkan melalui layanan ini bersifat agregat, tidak digunakan untuk mengidentifikasi individu secara langsung, dan dapat diproses di luar yurisdiksi Indonesia sesuai kebijakan masing-masing penyedia layanan. Kami tidak bertanggung jawab atas kebijakan privasi penyedia layanan pihak ketiga tersebut, dan menganjurkan Anda untuk meninjau kebijakan mereka secara langsung."
+  },
+
+  "consent": {
+    "title": "Persetujuan Penggunaan Data",
+    "description": "Dengan mengakses situs web kami melalui perangkat atau sarana apa pun, mengisi formulir, menghubungi tim kami, menggunakan layanan konsultasi kami baik secara daring maupun luring, atau melalui komunikasi lainnya (termasuk email, telepon, atau pertemuan langsung), Anda memberikan persetujuan bahwa data pribadi Anda dapat dikumpulkan, disimpan, digunakan, dan dibagikan oleh:",
+    "list": {
+      "bussinessPartners": "Mitra Kerja",
+      "thirdParty": "Pihak Ketiga yang bekerja sama dengan kami secara profesional untuk pengembangan dan pengelolaan layanan",
+      "authorities": "Lembaga yang berwenang berdasarkan ketentuan hukum yang berlaku"
+    }
+  },
+
+  "dataTransfer": {
+    "title": "Transfer Data Lintas Negara",
+    "par1": " Adviz dapat mentransfer informasi pribadi Anda ke negara lain di luar yurisdiksi tempat tinggal Anda. Hal ini dilakukan apabila layanan konsultasi kami melibatkan entitas internasional, proyek lintas negara, atau penggunaan penyedia layanan dan mitra profesional kami yang berbasis di berbagai negara.",
+    "par2": " Selain itu, transfer juga dapat terjadi apabila Anda sendiri mengakses layanan kami dari luar wilayah negara tempat Adviz beroperasi."
+  },
+
+  "rights": {
+    "title": "Hak Pengguna",
+    "desc": "Sebagai pengguna, Anda memiliki hak-hak berikut terkait data pribadi Anda:",
+    "list": {
+      "par1": "Hak untuk mengakses data pribadi Anda",
+      "par2": "Hak untuk meminta koreksi data yang tidak akurat",
+      "par3": "Hak untuk membatasi pemrosesan data",
+      "par4": "Hak untuk menolak pemrosesan data",
+      "par5": "Hak untuk meminta penghapusan data",
+      "par6": "Hak untuk meminta informasi apakah kami memproses data Anda"
+    },
+    "conclude": " Untuk menggunakan hak-hak ini, silakan hubungi kami melalui informasi kontak yang tersedia di situs web kami."
+  },
+
+  "security": {
+    "title": "Keamanan Data",
+    "par1": "Kami mengimplementasikan langkah-langkah keamanan teknis dan organisasional yang tepat untuk melindungi data pribadi Anda dari pengolahan yang tidak sah atau melanggar hukum, kehilangan, perusakan, atau kerusakan yang tidak disengaja.",
+    "par2": "Namun, meskipun kami berusaha untuk melindungi informasi pribadi Anda, kami tidak dapat menjamin keamanan absolut dari data yang Anda kirimkan kepada kami. Transmisi melalui internet selalu berisiko, dan meskipun kami berupaya sebaik mungkin untuk melindungi data pribadi, kami tidak dapat menjamin keamanan data selama dalam transmisi.",
+    "par3": "Kami secara teratur meninjau dan memperbarui praktik keamanan kami untuk memastikan perlindungan informasi Anda sesuai dengan standar industri terkini."
+  },
+
+  "updates": {
+    "title": "Pembaruan Kebijakan",
+    "par1": " Kebijakan Privasi ini dapat diperbarui sewaktu-waktu oleh Adviz, sejalan dengan kebutuhan bisnis, perubahan operasional, atau ketentuan hukum yang berlaku.",
+    "par2": " Versi terbaru akan selalu tersedia pada situs web kami, dan Anda dianggap telah menerima perubahan tersebut dengan tetap mengakses atau menggunakan layanan kami setelah kebijakan diperbarui."
+  },
+  "title": "Kebijakan Privasi",
+  "subTitle": "PT Bisnis Adviz Solusi berkomitmen untuk melindungi privasi dan data pribadi Anda. Dokumen ini menjelaskan praktik pengumpulan dan penggunaan data kami.",
+  "toc": "Daftar Isi",
+  "final": {
+    "contactUs": "Hubungi Kami",
+    "contactDesc": "Jika Anda memiliki pertanyaan atau kekhawatiran tentang Kebijakan Privasi kami atau penanganan data Anda, jangan ragu untuk menghubungi kami.",
+    "lastUpdated": "Terakhir diperbarui: 20 Mei 2025"
+  }
+}

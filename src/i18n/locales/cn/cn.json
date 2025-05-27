@@ -1,0 +1,271 @@
+{
+    "warning": {
+      "undefined": "发生错误。"
+    },
+    "menu": {
+      "about": "关于我们",
+      "services": "我们的服务",
+      "contact": "联系我们",
+      "simulation": "模拟",
+      "caseStudies": "案例研究"
+    },
+    "footer": {
+      "qLinks": "快速链接",
+      "finConsult": "财务顾问",
+      "hrConsult": "人力资源顾问",
+      "contactInfo": "联系方式",
+      "privacyPolicy": "隐私政策",
+      "termsOfService": "服务条款",
+      "allRightsReserved": "版权所有",
+      "clickCopy": "点击复制",
+      "copied": "已复制！"
+    },
+    "home": {
+      "heroText": "深入了解资产负债表、损益表和现金流量表，培养实用的财务分析技能，以做出更明智的商业决策。",
+      "case": {
+        "title": "案例研究：BudiPhone",
+        "subtitle": "数字背后有故事，一起探索！",
+        "intro": "你知道数字也能讲故事吗？财务报表不仅仅是收入与支出，它反映了企业的真正健康状况。",
+        "sectionTitle": "了解 Budi 的手机王国",
+        "sectionDesc": "Budi 是 BudiPhone 的创始人，这是一家在当地颇受欢迎的智能手机店。他精心挑选了三种品牌，以满足不同客户的需求：",
+        "currentlySelling": "目前 BudiPhone 正在销售以下三个品牌",
+        "brands": {
+          "a": {
+            "name": "品牌 A",
+            "desc": "高端智能手机，具有卓越的质量与生态系统整合",
+            "features": ["高端机身", "生态系统整合", "长期支持"]
+          },
+          "b": {
+            "name": "品牌 B",
+            "desc": "功能丰富，采用尖端技术的设备",
+            "features": ["多功能", "出色的相机", "可扩展存储"]
+          },
+          "c": {
+            "name": "品牌 C",
+            "desc": "性价比高的选择，质量也不打折",
+            "features": ["价格实惠", "良好性能", "基础功能齐全"]
+          }
+        },
+        "accessories": "为了补充手机销售，Budi 还提供了充电器、保护壳、耳机等基本配件，确保每位顾客都能一次性买齐所需。",
+        "diveTitle": "深入了解这些数字",
+        "diveText": "现在，让我们仔细查看 BudiPhone 的财务报表，看看你是否能发现数字背后的故事！"
+      },
+      "hilightCard": {
+        "balanceSheet": "资产负债表",
+        "period": "期间：截至 2024 年 1 月 31 日",
+        "profitLoss": "损益表",
+        "periodProfit": "期间：2024 年 1 月 31 日",
+        "descPL": "总结收入、销售成本、费用及其他项目的报表",
+        "descBS": "在某一特定时间点展示资产、负债和所有者权益的报表",
+        "flipbox": {
+          "pl": {
+            "title": "一月损益表",
+            "description": "BudiPhone 一月损益表"
+          },
+          "bs": {
+            "title": "资产负债表",
+            "description": "资产、负债与所有者权益说明"
+          }
+        }
+      },
+      "challenge": {
+        "title": "挑战：你能还原最初的资产负债表吗？",
+        "clue": "你有能力根据线索还原出原始资产负债表吗？",
+        "callToAction": "如果你愿意挑战，请通过电子邮件或直接联系我们，我们会发送完整案例资料，看看你是否能破解数字背后的财务故事。",
+        "privacyNotice": "隐私声明：你提交的信息及联系方式仅用于此次挑战。我们尊重您的隐私，不会将您的数据用于营销、分发或其他不相关用途。",
+        "emailUs": "给我们发邮件",
+        "or": "或"
+      }
+    },
+    "contact": {
+      "ourLocation": "我们的地址",
+      "officeAddress": {
+        "buildingName": "Arva Cikini 大楼",
+        "building": "Arva Cikini 大楼 4 楼",
+        "street": "Cikini Raya 街 60 号",
+        "district": "印度尼西亚 雅加达中区",
+        "postalCode": "10330"
+      },
+      "phoneNumber": "电话号码",
+      "email": "电子邮件地址",
+      "businessHours": "营业时间",
+      "hoursWeekday": "周一至周五：上午 8:30 - 下午 5:30",
+      "hoursWeekend": "周六至周日：休息",
+      "contactUs": "联系我们",
+      "findUs": "在这里找到我们"
+    },
+  "dummy": {
+    "pl": {
+      "revenue": {
+        "title": "收入",
+        "desc": "显示销售给客户的手机和配件的总金额。"
+      },
+      "handphones": {
+        "title": "手机",
+        "desc": "来自向客户销售手机的收入。"
+      },
+      "accessories": {
+        "title": "手机壳、耳机、充电器",
+        "desc": "来自向客户销售配件（包括手机壳、耳机和充电器）的收入。"
+      },
+      "totalRevenue": {
+        "title": "总收入",
+        "desc": "从所有产品线销售给客户所累积的总毛收入。"
+      },
+      "cogs": {
+        "title": "销售成本",
+        "desc": "显示销售给客户的手机和配件的销售成本，以及所有产品的总销售成本。"
+      },
+      "cogsHandphones": {
+        "title": "手机",
+        "desc": "与手机采购相关的成本。"
+      },
+      "cogsAccessories": {
+        "title": "手机壳、耳机、充电器",
+        "desc": "与配件生产和采购相关的成本。"
+      },
+      "totalCogs": {
+        "title": "总销售成本",
+        "desc": "产品采购和库存管理的总直接成本。"
+      },
+      "grossProfit": {
+        "title": "毛利润",
+        "desc": "在扣除运营费用之前从所产生的收入中获得的毛利润。"
+      },
+      "opex": {
+        "title": "运营费用",
+        "desc": "维持业务活动和运营所需的日常运营成本。"
+      },
+      "salary": {
+        "title": "薪资",
+        "desc": "员工薪资。"
+      },
+      "rental": {
+        "title": "租金",
+        "desc": "每月需支付的店铺租金成本。"
+      },
+      "electricity": {
+        "title": "电费",
+        "desc": "电力的公用事业成本。"
+      },
+      "internet": {
+        "title": "互联网",
+        "desc": "每月的互联网订阅费用。"
+      },
+      "officeSupplies": {
+        "title": "办公用品",
+        "desc": "清洁用品、矿泉水和其他小物品。"
+      },
+      "depreciation": {
+        "title": "折旧",
+        "desc": "资产价值随时间下降的费用确认。"
+      },
+      "totalOpex": {
+        "title": "总运营费用",
+        "desc": "维持业务运营所需的总运营成本。"
+      },
+      "netIncome": {
+        "title": "净收入",
+        "desc": "扣除所有费用后的最终利润。"
+      }
+    },
+    "bs": {
+      "assets": {
+        "title": "资产",
+        "desc": "资产是公司拥有的可为收入做出贡献的经济资源。"
+      },
+      "currentAssets": {
+        "title": "流动资产",
+        "desc": "预计在一年内转换为现金的资产。"
+      },
+      "cash": {
+        "title": "现金",
+        "desc": "月末的总现金。"
+      },
+      "bank": {
+        "title": "银行",
+        "desc": "月末的银行总额。"
+      },
+      "receivables": {
+        "title": "应收账款",
+        "desc": "尚未从客户收到的余额。"
+      },
+      "inventory": {
+        "title": "库存",
+        "desc": "月末的剩余库存。"
+      },
+      "totalCurrentAssets": {
+        "title": "流动资产总计",
+        "desc": "所有流动资产的总和。"
+      },
+      "fixedAssets": {
+        "title": "固定资产",
+        "desc": "预计使用超过一年的资产。"
+      },
+      "fixedCost": {
+        "title": "成本：",
+        "desc": "固定资产的总成本。"
+      },
+      "storeEquip": {
+        "title": "店铺设备",
+        "desc": "店铺拥有和放置的设备。"
+      },
+      "storeFurn": {
+        "title": "店铺家具",
+        "desc": "店铺拥有和放置的家具。"
+      },
+      "totalCost": {
+        "title": "总成本",
+        "desc": "固定资产的总成本。"
+      },
+      "accumDepr": {
+        "title": "累计折旧",
+        "desc": "固定资产的累计折旧总额。"
+      },
+      "netBook": {
+        "title": "账面净值",
+        "desc": "固定资产减去累计折旧。"
+      },
+      "totalAssets": {
+        "title": "资产总计",
+        "desc": "公司所有资产的总和。"
+      },
+      "liabilities": {
+        "title": "负债",
+        "desc": "负债是公司必须支付给第三方的义务。"
+      },
+      "currentLiabilities": {
+        "title": "流动负债",
+        "desc": "必须在一年内结清的短期财务义务。"
+      },
+      "payables": {
+        "title": "应付账款",
+        "desc": "欠供应商的金额。"
+      },
+      "totalLiabilities": {
+        "title": "负债总计",
+        "desc": "所有负债的总和。"
+      },
+      "equity": {
+        "title": "股东权益",
+        "desc": "用于运营的资本金额。"
+      },
+      "shareCapital": {
+        "title": "股本",
+        "desc": "已发行股份的价值。"
+      },
+      "retainedEarnings": {
+        "title": "留存收益",
+        "desc": "从开始到当前的累计收入/损失。"
+      },
+      "totalEquity": {
+        "title": "股东权益总计",
+        "desc": "所有股东权益的总和。"
+      },
+      "totalLE": {
+        "title": "负债和股东权益总计",
+        "desc": "负债和股东权益的总和。"
+      }
+    }
+  }
+}

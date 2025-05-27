@@ -1,0 +1,274 @@
+{
+  "warning": {
+    "undefined": "Something went wrong."
+  },
+
+  "menu": {
+    "about": "About Us",
+    "services": "Our Services",
+    "contact": "Our Contact",
+    "simulation": "Simulation",
+    "caseStudies": "Case Studies"
+  },
+
+  "footer": {
+    "qLinks": "Quick Links",
+    "finConsult": "Financial Consultant",
+    "hrConsult": "HR Consultant",
+    "contactInfo": "Contact Information",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "allRightsReserved": "All Rights Reserved",
+    "clickCopy": "Click to copy",
+    "copied": "Copied!"
+  },
+
+  "home": {
+    "heroText": "Gain expert insights into balance sheets, income statements, and cash flow reports. Develop practical, hands-on financial analysis skills to make smarter business decisions.",
+    "case": {
+      "title": "Case Study: BudiPhone",
+      "subtitle": "Numbers Tell a Story. Let's Uncover It!",
+      "intro": "Do you know that you can tell a story with numbers? Financial reports aren't just about income and expenses - they reveal the real health of a business.",
+      "sectionTitle": "Meet Budi's Smartphone Empire",
+      "sectionDesc": "Budi is the proud owner of BudiPhone, a thriving smartphone store in town. He has carefully selected three smartphone brands to cater to different customer needs:",
+      "currentlySelling": "Currently BudiPhone is selling 3 brands",
+      "brands": {
+        "a": {
+          "name": "Brand A",
+          "desc": "Premium smartphones with exceptional quality and integration",
+          "features": ["Premium build", "Ecosystem integration", "Long-term support"]
+        },
+        "b": {
+          "name": "Brand B",
+          "desc": "Feature-rich devices with cutting-edge technology",
+          "features": ["Versatile features", "Great cameras", "Expandable storage"]
+        },
+        "c": {
+          "name": "Brand C",
+          "desc": "Budget-friendly options without compromising quality",
+          "features": ["Affordable", "Good performance", "Essential features"]
+        }
+      },
+      "accessories": "To complement his smartphone sales, Budi also offers essential accessories: chargers, cases, earphones, and more – ensuring that every customer finds everything they need in one place.",
+      "diveTitle": "Let's Dive Into The Numbers",
+      "diveText": "Now, let's take a closer look at BudiPhone's financial reports and see if you can uncover the story behind the numbers!"
+    },
+    "hilightCard": {
+      "balanceSheet": "Balance Sheet",
+      "period": "Period: As of 31 January 2024",
+      "profitLoss": "Profit and Loss",
+      "periodProfit": "Period: 31 January 2024",
+      "descPL": "A statement that summarizes revenue, cost of goods sold, expenses, and any other items",
+      "descBS": "A statement of the assets, liabilities, and equity at one point of time",
+      "flipbox": {
+        "pl": {
+          "title": "Profit & Loss Statement For January",
+          "description": "BudiPhone Profit and Loss Statement For January"
+        },
+        "bs": {
+          "title": "Balance Sheet",
+          "description": "Statement of assets, liabilities, and equity"
+        }
+      }
+    },
+    "challenge": {
+      "title": "Challenge: Can You Rebuild the Original Balance Sheet?",
+      "clue": "Think you have what it takes to reconstruct the original balance sheet from the clues?",
+      "callToAction": "If you're up for the challenge, drop us an email or message us directly. We'll send you the full case details and see if you can uncover the financial story behind the numbers.",
+      "privacyNotice": "Privacy Notice: Your submission and contact details will be used solely for the purpose of this challenge. We respect your privacy and will not share or use your data for marketing, distribution, or any other unrelated activities.",
+      "emailUs": "Email Us",
+      "or": "or"
+    }
+  },
+  "contact": {
+    "ourLocation": "Our Location",
+    "officeAddress": {
+      "buildingName": "Arva Cikini Building",
+      "building": "Arva Cikini Building, 4th Floor",
+      "street": "Jl. Cikini Raya No. 60, Cikini",
+      "district": "Central Jakarta, Indonesia",
+      "postalCode": "10330"
+    },
+    "phoneNumber": "Phone Number",
+    "email": "Email Address",
+    "businessHours": "Business Hours",
+    "hoursWeekday": " Monday - Friday: 8:30 AM - 5:30 PM",
+    "hoursWeekend": "Saturday - Sunday: Closed",
+    "contactUs": "Contact Us",
+    "findUs": "Find Us Here"
+  },
+  "dummy": {
+    "pl": {
+      "revenue": {
+        "title": "Revenue",
+        "desc": "Show the total amount of the handphones sold to the customers and the total amount of the accessories sold to the customers."
+      },
+      "handphones": {
+        "title": "Handphones",
+        "desc": "Revenue from handphone sales to customers."
+      },
+      "accessories": {
+        "title": "Cases, Earphones, Chargers",
+        "desc": "Revenue from accessories including cases, earphones, and chargers sold to customers."
+      },
+      "totalRevenue": {
+        "title": "Total Revenue",
+        "desc": "Total gross revenue accumulated from all product lines sold to customers."
+      },
+      "cogs": {
+        "title": "COGS",
+        "desc": "Show the cost of goods sold for the handphones and accessories sold to the customers and the total cost of goods sold for all products."
+      },
+      "cogsHandphones": {
+        "title": "Handphones",
+        "desc": "Costs related to handphone procurement."
+      },
+      "cogsAccessories": {
+        "title": "Cases, Earphones, Chargers",
+        "desc": "Costs related to accessories production and procurement."
+      },
+      "totalCogs": {
+        "title": "Total COGS",
+        "desc": "Total direct costs for product procurement and inventory management."
+      },
+      "grossProfit": {
+        "title": "Gross Profit",
+        "desc": "Gross profit before operational expenses are deducted from revenue generated."
+      },
+      "opex": {
+        "title": "Operating Expenses",
+        "desc": "Daily operational costs required to sustain business activities and operations."
+      },
+      "salary": {
+        "title": "Salary",
+        "desc": "Employee salary."
+      },
+      "rental": {
+        "title": "Rental",
+        "desc": "Rental cost that needs to be paid every month for the store."
+      },
+      "electricity": {
+        "title": "Electricity",
+        "desc": "Utility costs for electricity."
+      },
+      "internet": {
+        "title": "Internet",
+        "desc": "Internet monthly subscription."
+      },
+      "officeSupplies": {
+        "title": "Office Supplies",
+        "desc": "Cleaning supplies, mineral waters and other small items."
+      },
+      "depreciation": {
+        "title": "Depreciation",
+        "desc": "Expense recognition for the declining value of assets over time."
+      },
+      "totalOpex": {
+        "title": "Total Operating Expenses",
+        "desc": "Total operational costs required to maintain business operations."
+      },
+      "netIncome": {
+        "title": "Net Income",
+        "desc": "Final profit after all expenses."
+      }
+    },
+    "bs": {
+      "assets": {
+        "title": "Assets",
+        "desc": "Assets are economic resources owned by the company that can contribute to revenue."
+      },
+      "currentAssets": {
+        "title": "Current Assets",
+        "desc": "Assets that are expected to be converted into cash within one year."
+      },
+      "cash": {
+        "title": "Cash",
+        "desc": "Total cash at the end of the month."
+      },
+      "bank": {
+        "title": "Bank",
+        "desc": "Total bank at the end of the month."
+      },
+      "receivables": {
+        "title": "Account Receivables",
+        "desc": "Balance not yet received from customers."
+      },
+      "inventory": {
+        "title": "Inventory",
+        "desc": "Remaining inventory at the end of the month."
+      },
+      "totalCurrentAssets": {
+        "title": "Total Current Assets",
+        "desc": "Sum of all current assets."
+      },
+      "fixedAssets": {
+        "title": "Fixed Assets",
+        "desc": "Assets that are expected to be used for more than one year."
+      },
+      "fixedCost": {
+        "title": "Cost:",
+        "desc": "Total cost of fixed assets."
+      },
+      "storeEquip": {
+        "title": "Store Equipments",
+        "desc": "Equipments owned and placed at the store."
+      },
+      "storeFurn": {
+        "title": "Store Furniture",
+        "desc": "Furniture owned and placed at the store."
+      },
+      "totalCost": {
+        "title": "Total Cost",
+        "desc": "Total cost of fixed assets."
+      },
+      "accumDepr": {
+        "title": "Accumulated Depreciation",
+        "desc": "Total amount of accumulated depreciation of fixed assets."
+      },
+      "netBook": {
+        "title": "Net Book Value",
+        "desc": "Fixed assets minus accumulated depreciation."
+      },
+      "totalAssets": {
+        "title": "Total Assets",
+        "desc": "Sum of all company assets."
+      },
+      "liabilities": {
+        "title": "Liabilities",
+        "desc": "Liabilities are obligations that the company must pay to third parties."
+      },
+      "currentLiabilities": {
+        "title": "Current Liabilities",
+        "desc": "Short-term financial obligations that must be settled within one year."
+      },
+      "payables": {
+        "title": "Account Payables",
+        "desc": "Amounts owed to suppliers."
+      },
+      "totalLiabilities": {
+        "title": "Total Liabilities",
+        "desc": "Sum of all liabilities."
+      },
+      "equity": {
+        "title": "Equity",
+        "desc": "Amount of capital that was placed to run the operations."
+      },
+      "shareCapital": {
+        "title": "Share Capital",
+        "desc": "Value of issued shares."
+      },
+      "retainedEarnings": {
+        "title": "Retained Earnings",
+        "desc": "Accumulated income/loss from the beginning until current position."
+      },
+      "totalEquity": {
+        "title": "Total Equity",
+        "desc": "Sum of all equity."
+      },
+      "totalLE": {
+        "title": "Total Liabilities & Equity",
+        "desc": "Sum of liabilities and equity."
+      }
+    }
+  }
+}

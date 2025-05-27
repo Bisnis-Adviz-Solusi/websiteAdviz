@@ -1,0 +1,271 @@
+{
+  "warning": {
+    "undefined": "Terjadi kesalahan."
+  },
+  "menu": {
+    "about": "Tentang Kami",
+    "services": "Layanan Kami",
+    "contact": "Kontak Kami",
+    "simulation": "Simulasi",
+    "caseStudies": "Studi Kasus"
+  },
+  "footer": {
+    "qLinks": "Navigasi",
+    "finConsult": "Konsultan Keuangan",
+    "hrConsult": "Konsultan SDM",
+    "contactInfo": "Informasi Kontak",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Syarat dan Ketentuan",
+    "allRightsReserved": "Seluruh Hak Cipta Dilindungi",
+    "clickCopy": "Klik untuk menyalin",
+    "copied": "Tersalin!"
+  },
+  "home": {
+    "heroText": "Dapatkan wawasan ahli tentang neraca, laporan laba rugi, dan arus kas. Kembangkan kemampuan analisis keuangan secara praktis untuk mengambil keputusan bisnis yang lebih cerdas.",
+    "case": {
+      "title": "Studi Kasus: BudiPhone",
+      "subtitle": "Angka Juga Punya Cerita. Ayo Kita Ungkap!",
+      "intro": "Tahukah kamu bahwa angka bisa bercerita? Laporan keuangan bukan sekadar soal pendapatan dan pengeluaran – mereka menunjukkan kondisi kesehatan bisnis yang sebenarnya.",
+      "sectionTitle": "Kenalan dengan Kerajaan Smartphone Budi",
+      "sectionDesc": "Budi adalah pemilik BudiPhone, toko smartphone yang sukses di kotanya. Ia memilih tiga merek smartphone untuk menjangkau kebutuhan pelanggan yang berbeda-beda:",
+      "currentlySelling": "Saat ini BudiPhone menjual 3 merek",
+      "brands": {
+        "a": {
+          "name": "Merek A",
+          "desc": "Smartphone premium dengan kualitas dan integrasi luar biasa",
+          "features": ["Bodi premium", "Integrasi ekosistem", "Dukungan jangka panjang"]
+        },
+        "b": {
+          "name": "Merek B",
+          "desc": "Perangkat kaya fitur dengan teknologi mutakhir",
+          "features": ["Fitur lengkap", "Kamera hebat", "Memori bisa ditambah"]
+        },
+        "c": {
+          "name": "Merek C",
+          "desc": "Pilihan ramah kantong tanpa mengorbankan kualitas",
+          "features": ["Harga terjangkau", "Performa bagus", "Fitur esensial"]
+        }
+      },
+      "accessories": "Untuk melengkapi penjualan smartphone, Budi juga menjual aksesori penting: charger, casing, earphone, dan lainnya – memastikan pelanggan mendapatkan semua yang mereka butuhkan di satu tempat.",
+      "diveTitle": "Ayo Telusuri Angkanya!",
+      "diveText": "Sekarang, mari kita lihat lebih dekat laporan keuangan BudiPhone dan coba ungkap cerita di balik angkanya!"
+    },
+    "hilightCard": {
+      "balanceSheet": "Neraca Keuangan",
+      "period": "Periode: Per 31 Januari 2024",
+      "profitLoss": "Laba Rugi",
+      "periodProfit": "Periode: 31 Januari 2024",
+      "descPL": "Ringkasan pendapatan, harga pokok penjualan, beban, dan item lainnya",
+      "descBS": "Laporan aset, kewajiban, dan ekuitas pada satu waktu tertentu",
+      "flipbox": {
+        "pl": {
+          "title": "Laporan Laba Rugi Bulan Januari",
+          "description": "Laporan Laba Rugi BudiPhone untuk Bulan Januari"
+        },
+        "bs": {
+          "title": "Neraca Keuangan",
+          "description": "Laporan aset, kewajiban, dan ekuitas"
+        }
+      }
+    },
+    "challenge": {
+      "title": "Tantangan: Bisakah Kamu Susun Ulang Neraca Aslinya?",
+      "clue": "Kamu merasa mampu menyusun kembali neraca berdasarkan petunjuk-petunjuk yang ada?",
+      "callToAction": "Kalau kamu tertarik mengikuti tantangannya, kirim email atau pesan langsung ke kami. Kami akan kirim detail kasus lengkap dan lihat apakah kamu bisa mengungkap cerita keuangan di balik angka-angka.",
+      "privacyNotice": "Catatan Privasi: Data dan kontak kamu hanya akan digunakan untuk keperluan tantangan ini. Kami menjunjung tinggi privasi dan tidak akan membagikan atau menggunakan data kamu untuk keperluan lain.",
+      "emailUs": "Kirim Email",
+      "or": "atau"
+    }
+  },
+  "contact": {
+    "ourLocation": "Lokasi Kami",
+    "officeAddress": {
+      "buildingName": "Gedung Arva Cikini",
+      "building": "Gedung Arva Cikini, Lantai 4",
+      "street": "Jl. Cikini Raya No. 60, Cikini",
+      "district": "Jakarta Pusat, Indonesia",
+      "postalCode": "10330"
+    },
+    "phoneNumber": "Nomor Telepon",
+    "email": "Alamat Email",
+    "businessHours": "Jam Operasional",
+    "hoursWeekday": " Senin - Jumat: 08.30 - 17.30",
+    "hoursWeekend": "Sabtu - Minggu: Tutup",
+    "contactUs": "Hubungi Kami",
+    "findUs": "Temukan Kami di Sini"
+  },
+  "dummy": {
+    "pl": {
+      "revenue": {
+        "title": "Pendapatan",
+        "desc": "Menunjukkan total hasil penjualan handphone dan aksesori kepada pelanggan."
+      },
+      "handphones": {
+        "title": "Handphone",
+        "desc": "Pendapatan dari penjualan handphone kepada pelanggan."
+      },
+      "accessories": {
+        "title": "Casing, Earphone, Charger",
+        "desc": "Pendapatan dari penjualan aksesori seperti casing, earphone, dan charger."
+      },
+      "totalRevenue": {
+        "title": "Total Pendapatan",
+        "desc": "Jumlah pendapatan kotor dari seluruh produk yang terjual."
+      },
+      "cogs": {
+        "title": "Harga Pokok Penjualan (HPP)",
+        "desc": "Menampilkan biaya untuk memperoleh handphone dan aksesori serta total keseluruhan HPP."
+      },
+      "cogsHandphones": {
+        "title": "Handphone",
+        "desc": "Biaya pembelian handphone."
+      },
+      "cogsAccessories": {
+        "title": "Casing, Earphone, Charger",
+        "desc": "Biaya produksi dan pengadaan aksesori."
+      },
+      "totalCogs": {
+        "title": "Total HPP",
+        "desc": "Total biaya langsung untuk pengadaan produk dan pengelolaan stok."
+      },
+      "grossProfit": {
+        "title": "Laba Kotor",
+        "desc": "Laba sebelum dikurangi biaya operasional dari pendapatan yang diperoleh."
+      },
+      "opex": {
+        "title": "Biaya Operasional",
+        "desc": "Biaya harian untuk menjalankan kegiatan bisnis."
+      },
+      "salary": {
+        "title": "Gaji",
+        "desc": "Gaji karyawan."
+      },
+      "rental": {
+        "title": "Sewa",
+        "desc": "Biaya sewa toko per bulan."
+      },
+      "electricity": {
+        "title": "Listrik",
+        "desc": "Biaya penggunaan listrik."
+      },
+      "internet": {
+        "title": "Internet",
+        "desc": "Biaya langganan internet per bulan."
+      },
+      "officeSupplies": {
+        "title": "Perlengkapan Kantor",
+        "desc": "Alat kebersihan, air minum, dan kebutuhan kecil lainnya."
+      },
+      "depreciation": {
+        "title": "Penyusutan",
+        "desc": "Pengakuan biaya atas penurunan nilai aset dari waktu ke waktu."
+      },
+      "totalOpex": {
+        "title": "Total Biaya Operasional",
+        "desc": "Total biaya untuk menjalankan aktivitas bisnis."
+      },
+      "netIncome": {
+        "title": "Laba Bersih",
+        "desc": "Keuntungan akhir setelah dikurangi semua beban."
+      }
+    },
+    "bs": {
+      "assets": {
+        "title": "Aset",
+        "desc": "Aset adalah sumber daya ekonomi yang dimiliki perusahaan dan bisa menghasilkan pendapatan."
+      },
+      "currentAssets": {
+        "title": "Aset Lancar",
+        "desc": "Aset yang diperkirakan akan menjadi kas dalam waktu satu tahun."
+      },
+      "cash": {
+        "title": "Kas",
+        "desc": "Jumlah kas di akhir bulan."
+      },
+      "bank": {
+        "title": "Bank",
+        "desc": "Jumlah saldo di bank pada akhir bulan."
+      },
+      "receivables": {
+        "title": "Piutang Usaha",
+        "desc": "Tagihan yang belum dibayar oleh pelanggan."
+      },
+      "inventory": {
+        "title": "Persediaan",
+        "desc": "Stok barang yang tersisa di akhir bulan."
+      },
+      "totalCurrentAssets": {
+        "title": "Total Aset Lancar",
+        "desc": "Jumlah keseluruhan aset lancar."
+      },
+      "fixedAssets": {
+        "title": "Aset Tetap",
+        "desc": "Aset yang digunakan lebih dari satu tahun."
+      },
+      "fixedCost": {
+        "title": "Biaya:",
+        "desc": "Total biaya untuk aset tetap."
+      },
+      "storeEquip": {
+        "title": "Peralatan Toko",
+        "desc": "Peralatan yang dimiliki dan digunakan di toko."
+      },
+      "storeFurn": {
+        "title": "Furnitur Toko",
+        "desc": "Furnitur yang dimiliki dan ditempatkan di toko."
+      },
+      "totalCost": {
+        "title": "Total Biaya",
+        "desc": "Total biaya dari aset tetap."
+      },
+      "accumDepr": {
+        "title": "Akumulasi Penyusutan",
+        "desc": "Jumlah penyusutan yang sudah diakui dari aset tetap."
+      },
+      "netBook": {
+        "title": "Nilai Buku Bersih",
+        "desc": "Aset tetap setelah dikurangi akumulasi penyusutan."
+      },
+      "totalAssets": {
+        "title": "Total Aset",
+        "desc": "Jumlah keseluruhan aset perusahaan."
+      },
+      "liabilities": {
+        "title": "Kewajiban",
+        "desc": "Kewajiban adalah utang perusahaan kepada pihak lain."
+      },
+      "currentLiabilities": {
+        "title": "Kewajiban Lancar",
+        "desc": "Kewajiban jangka pendek yang harus dibayar dalam satu tahun."
+      },
+      "payables": {
+        "title": "Utang Usaha",
+        "desc": "Jumlah yang harus dibayar kepada pemasok."
+      },
+      "totalLiabilities": {
+        "title": "Total Kewajiban",
+        "desc": "Jumlah seluruh kewajiban."
+      },
+      "equity": {
+        "title": "Ekuitas",
+        "desc": "Modal yang ditanamkan untuk menjalankan bisnis."
+      },
+      "shareCapital": {
+        "title": "Modal Saham",
+        "desc": "Nilai saham yang telah diterbitkan."
+      },
+      "retainedEarnings": {
+        "title": "Laba Ditahan",
+        "desc": "Akumulasi laba/rugi dari awal hingga saat ini."
+      },
+      "totalEquity": {
+        "title": "Total Ekuitas",
+        "desc": "Jumlah keseluruhan ekuitas."
+      },
+      "totalLE": {
+        "title": "Total Kewajiban & Ekuitas",
+        "desc": "Jumlah kewajiban dan ekuitas."
+      }
+    }
+  }
+}

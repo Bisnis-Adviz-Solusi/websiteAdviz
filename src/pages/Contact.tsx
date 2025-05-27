@@ -6,34 +6,39 @@ import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
-import { BottomNav, Footer, Navbar } from '@/components';
+import { BottomNav, Footer } from '@/components';
+import { useTranslation } from 'react-i18next';
 
 // Separate component for the GLTF model
 const Scene = () => {
-  const gltf = useLoader(GLTFLoader, '/models/globe.glb');
+  const gltf = useLoader(GLTFLoader, '/models/earth.glb');
 
   return (
-    
+
     <>
-     <ambientLight intensity={1.5} />
-     <directionalLight position={[-1.3, 6.0, 4.4]} castShadow intensity={0.8} />
+      <ambientLight intensity={1} />
+      <directionalLight
+        position={[-1, 8, 4]}
+        intensity={10}
+        castShadow
+      />
+
 
 
 
       <primitive
-  object={gltf.scene}
-  position={[0, -0.5, 0]}
-  castShadow
-  receiveShadow
-/>
-      <OrbitControls 
+        object={gltf.scene}
+        position={[0, 0, 0]}
+        scale={[6.4, 6.4, 6.4]}
+      />
+      <OrbitControls
         target={[0, -0.1, 0]}
         enableZoom={false}
         enablePan={false}
         minPolarAngle={Math.PI / 2.5}
         maxPolarAngle={Math.PI / 1.5}
         autoRotate
-        autoRotateSpeed={2}
+        autoRotateSpeed={1.5}
       />
     </>
   );
@@ -41,7 +46,7 @@ const Scene = () => {
 // Animated stars background
 const StarBackground = () => {
   const starsRef = useRef<THREE.Points>(null);
-  
+
   useFrame(({ clock }) => {
     if (starsRef.current) {
       // Rotate around Y axis slowly
@@ -54,7 +59,7 @@ const StarBackground = () => {
 
   return (
     <points ref={starsRef}>
-     <Stars radius={100} depth={50} count={2000} factor={4}  />
+      <Stars radius={100} depth={50} count={2000} factor={4} />
     </points>
   );
 };
@@ -64,7 +69,7 @@ const ContactUs = () => {
   const [isDark, setIsDark] = useState(false);
   const [, setHoverIndex] = useState<number | null>(null);
   const token = import.meta.env.VITE_APP_MAPBOX_ACCESS_TOKEN;
-
+  const { t } = useTranslation();
   useEffect(() => {
     const checkTheme = () => {
       setIsDark(document.documentElement.classList.contains('dark'));
@@ -87,54 +92,56 @@ const ContactUs = () => {
       {
         longitude: 106.83902712917678,
         latitude: -6.193666433316111,
-        title: 'Gedung Arva Cikini',
+        title: t('contact.buildingName'),
       },
     ],
   };
 
   const mapContainerStyle = {
     width: '100%',
-    height: '500px', 
+    height: '500px',
     borderRadius: '12px'
   };
 
   const contactItems = [
     {
       icon: <MapPin className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
-      title: "Our Location",
+      title: t('contact.ourLocation'),
       content: (
         <>
-          Arva Building, 4th floor, Cikini Raya Street No. 60,<br />
-          Jakarta Pusat, Provinsi DKI Jakarta
+          <span className="font-bold">{t('contact.officeAddress.building')}</span><br />
+          {t('contact.officeAddress.street')}<br />
+          {t('contact.officeAddress.district')}<br />
+          {t('contact.officeAddress.postalCode')}<br />
         </>
       )
     },
     {
       icon: <Phone className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
-      title: "Phone Number",
+      title: t('contact.phoneNumber'),
       content: "+62 21 1234 5678"
     },
     {
       icon: <Mail className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
-      title: "Email Address",
+      title: t('contact.email'),
       content: "marketing@adviz.id"
     },
     {
       icon: <Clock className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
-      title: "Business Hours",
+      title: t('contact.businessHours'),
       content: (
         <>
-          Monday - Friday: 8:30 AM - 5:30 PM<br />
-          Saturday - Sunday: Closed
+          {t('contact.hoursWeekday')} <br />
+          {t('contact.hoursWeekend')}
         </>
       )
     }
   ];
 
   return (
-    <div className="min-h-screen p-8  dark:bg-slate-950 relative overflow-hidden">
-       <Navbar/>
-  <BottomNav/>
+
+    <div className="flex flex-col min-h-screen dark:bg-slate-950 relative overflow-hidden gap-16 ">
+      <BottomNav />
       {/* Background Stars */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -146,13 +153,14 @@ const ContactUs = () => {
       <div className="relative z-10 w-full max-w-7xl mt-32 mx-auto rounded-3xl p-8  bg-white/30 dark:bg-slate-900/70 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
         {/* Company Profile Section */}
         <section className="relative py-12">
-          <div className="relative container mx-auto px-4">
+          <div className="relative container mx-auto">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
-                Contact Us
+              <h1 className="select-none cursor-default text-5xl md:text-6xl font-extrabold pb-4 bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
+                {t('contact.contactUs')}
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 animate-fade-in">
-                Building Tomorrow's Solutions Today
+              <p className="select-none cursor-default text-xl text-gray-600 dark:text-gray-300 animate-fade-in">
+                Where numbers meet understanding.
+                Let's simplify finance together.
               </p>
             </div>
           </div>
@@ -164,16 +172,7 @@ const ContactUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Contact Information */}
               <div className="space-y-8">
-                <div>
-                  <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
-                    Get in Touch
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-300 font-medium mb-8">
-                    We'd love to hear from you. Contact us using the information below.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
+                <div className="select-none space-y-6">
                   {contactItems.map((item, index) => (
                     <div
                       key={index}
@@ -202,10 +201,10 @@ const ContactUs = () => {
               </div>
 
               {/* 3D Model Section */}
-              <div   
+              <div
                 className="">
                 <Canvas camera={{ position: [0, 0, 15], fov: 60 }}>
-                  <Scene   />
+                  <Scene />
                 </Canvas>
               </div>
             </div>
@@ -213,54 +212,54 @@ const ContactUs = () => {
         </section>
 
         {/* Map Section */}
-    <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
-            Visit Our Office
-          </h2>
-          <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-            {token ? (
-              <Map
-                mapboxAccessToken={token}
-                initialViewState={{
-                  longitude: mapConfig.longitude,
-                  latitude: mapConfig.latitude,
-                  zoom: mapConfig.zoom,
-                }}
-                style={mapContainerStyle}
-                mapStyle={
-                  isDark
-                    ? "mapbox://styles/mapbox/dark-v11"
-                    : "mapbox://styles/mapbox/streets-v12"
-                }
-                interactive={true} // Pastikan interaktif diaktifkan
-              >
-                {mapConfig.markers.map((marker, index) => (
-                  <Marker
-                    key={index}
-                    longitude={marker.longitude}
-                    latitude={marker.latitude}
-                    anchor="bottom"
-                    offset={[0, -20]} 
+        <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="select-none cursor-default text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
+                {t('contact.findUs')}
+              </h2>
+              <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+                {token ? (
+                  <Map
+                    mapboxAccessToken={token}
+                    initialViewState={{
+                      longitude: mapConfig.longitude,
+                      latitude: mapConfig.latitude,
+                      zoom: mapConfig.zoom,
+                    }}
+                    style={mapContainerStyle}
+                    mapStyle={
+                      isDark
+                        ? "mapbox://styles/mapbox/dark-v11"
+                        : "mapbox://styles/mapbox/streets-v12"
+                    }
+                    interactive={true} // Pastikan interaktif diaktifkan
                   >
-                    <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600/90 dark:bg-orange-400/90 animate-pulse">
-                      <MapPin className="w-5 h-5 text-white dark:text-gray-900" />
-                    </div>
-                  </Marker>
-                ))}
-              </Map>
-            ) : (
-              <div className="h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-500">
-                Mapbox token not configured!
+                    {mapConfig.markers.map((marker, index) => (
+                      <Marker
+                        key={index}
+                        longitude={marker.longitude}
+                        latitude={marker.latitude}
+                        anchor="bottom"
+                        offset={[0, -20]}
+                      >
+                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600/90 dark:bg-orange-400/90 animate-pulse">
+                          <MapPin className="w-5 h-5 text-white dark:text-gray-900" />
+                        </div>
+                      </Marker>
+                    ))}
+                  </Map>
+                ) : (
+                  <div className=" select-none cursor-default h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-500">
+                    {t('warning.undefined')}
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
-      </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

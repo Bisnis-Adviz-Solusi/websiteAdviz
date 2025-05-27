@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const ContactCard = () => {
   const [isMobile] = useState(false);
@@ -62,6 +63,7 @@ const ContactCard = () => {
   };
 
 const FlipBox = () => {
+  const { t } = useTranslation();
   return (
     <div className="justify-center items-center w-full h-full hidden lg:block ">
       <div className="flip-box w-80 h-48 md:w-96 md:h-48 transition-all duration-500  hover:scale-105">
@@ -71,12 +73,12 @@ const FlipBox = () => {
           <div className="relative inner y-10 flex flex-col justify-center items-center h-full p-6 text-center">
             <div className="flex inner flex-col justify-center items-center h-48 p-6 space-y-6">
               <a className="group relative inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full text-base md:text-lg font-semibold overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/40 hover:scale-105 min-w-48">
-                <span className="relative z-10">📧 Email Us</span>
+                <span className="relative z-10">📧 {t('home.challenge.emailUs')}</span>
               </a>
 
               <div className="flex items-center space-x-2 w-full max-w-xs">
                 <div className="flex-1 h-2 bg-gradient-to-r from-transparent to-gray-500 dark:to-gray-400"></div>
-                <div className="text-gray-600 dark:text-gray-300 font-light text-sm">or</div>
+                <div className="text-gray-600 dark:text-gray-300 font-light text-sm">{t('home.challenge.or')}</div>
                 <div className="flex-1 h-2 bg-gradient-to-l from-transparent to-gray-500 dark:to-gray-400"></div>
               </div>
 
@@ -96,7 +98,7 @@ const FlipBox = () => {
 
             <div className="flex items-center space-x-2 w-full max-w-xs">
               <div className="flex-1 h-2 bg-gradient-to-r from-transparent to-gray-500 dark:to-gray-400"></div>
-              <div className="text-gray-600 dark:text-gray-300 font-light text-sm">or</div>
+              <div className="text-gray-600 dark:text-gray-300 font-light text-sm">{t('home.challenge.or')}</div>
               <div className="flex-1 h-2 bg-gradient-to-l from-transparent to-gray-500 dark:to-gray-400"></div>
             </div>
 

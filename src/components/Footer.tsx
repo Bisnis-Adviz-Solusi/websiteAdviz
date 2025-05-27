@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ExternalLink, MapPin, Mail, Phone } from 'lucide-react';
 import img from './../assets/logo.png';
 import CardSosmed from './ui/cardSosmed';
+import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 interface NavLinkType {
   id: string;
@@ -11,7 +13,24 @@ interface NavLinkType {
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
+  const [showPopup, setShowPopup] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
+  const handleCopy = (event: React.MouseEvent<HTMLSpanElement>) => {
+    const text = [
+      t("contact.officeAddress.building"),
+      t("contact.officeAddress.street"),
+      t("contact.officeAddress.district"),
+      t("contact.officeAddress.postalCode"),
+    ].join("\n");
+
+    navigator.clipboard.writeText(text).then(() => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false),1600);
+    });
+  }
   const linkHoverVariants = {
     hover: {
       y: -2,
@@ -60,7 +79,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gray-900 dark:bg-[#1A1A1A] text-white overflow-hidden">
+    <footer className="cursor-default select-none relative bg-gray-900 dark:bg-[#1A1A1A] text-white overflow-hidden">
       {/* Gradient Top Border */}
       <div className="h-1 w-full bg-gradient-to-r from-orange-600 via-blue-700 to-orange-400"></div>
 
@@ -98,10 +117,8 @@ const Footer = () => {
             className="space-y-6 w-96"
           >
             <img className="h-12 w-auto" alt="Adviz logo" src={img} />
-            <p className="text-gray-400 leading-relaxed">
-              Where numbers meet understanding. <p>Let's simplify finance together.</p>
-            </p>
-           
+      
+
           </motion.div>
 
           {/* Quick Links */}
@@ -109,9 +126,13 @@ const Footer = () => {
             variants={fadeInUp}
             className="space-y-6 lg:ml-24"
           >
-            <h4 className="text-lg font-semibold text-gray-200">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-gray-200">{t('footer.qLinks')}</h4>
             <ul className="space-y-3">
-              {['About Us', 'Our Services', 'Case Studies', 'Contact'].map((item: string) => (
+              {[
+                // t('menu.about'),
+                // t('menu.services'),
+                t('menu.caseStudies'),
+                t('menu.contact'),].map((item: string) => (
                 <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
                   <a
                     href={getPathByLabel(item)}
@@ -130,9 +151,9 @@ const Footer = () => {
             variants={fadeInUp}
             className="space-y-6"
           >
-            <h4 className="text-lg font-semibold text-gray-200">Our Services</h4>
+            {/* <h4 className="text-lg font-semibold text-gray-200">{t('menu.services')}</h4>
             <ul className="space-y-3">
-              {['Financial Consultant', 'HR Management Consultant'].map((item: string) => (
+              {[t('footer.finConsult'), t('footer.hrConsult')].map((item: string) => (
                 <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
                   <a
                     href={getPathByLabel('Services')}
@@ -142,7 +163,16 @@ const Footer = () => {
                   </a>
                 </motion.li>
               ))}
+            </ul> */}
+            <h4 className="text-lg font-semibold text-gray-200">{t('menu.services')}</h4>
+            <ul className="space-y-3">
+              {[t('footer.finConsult'), t('footer.hrConsult')].map((item: string) => (
+                <motion.li key={item} whileHover="hover" variants={linkHoverVariants}>
+                  <span className="text-gray-400 cursor-default  hover:text-orange-400 transition-colors ">{item}</span>
+                </motion.li>
+              ))}
             </ul>
+
           </motion.div>
 
           {/* Contact Info */}
@@ -150,15 +180,36 @@ const Footer = () => {
             variants={fadeInUp}
             className="space-y-6"
           >
-            <h4 className="text-lg font-semibold text-gray-200">Contact Information</h4>
+            <h4 className="text-lg font-semibold text-gray-200">{t('footer.contactInfo')}</h4>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
+              <li className="flex items-start w-fit min-w-[500px] gap-3 ">
                 <MapPin className="mt-1 w-5 h-5 text-orange-200 flex-shrink-0" />
-                <span className="text-gray-400">
-                  Arva Building, 4th floor, Cikini Raya Street No. 60,
-                  Jakarta Pusat, Provinsi DKI Jakarta
+
+                <span
+                  onClick={handleCopy}
+                  className="select-text cursor-pointer text-gray-400 hover:text-orange-400 space-y-1 flex flex-col"
+                  title= {t('footer.clickCopy')}
+                >
+                  <span>{t("contact.officeAddress.building")}</span>
+                  <span>{t("contact.officeAddress.street")}</span>
+                  <span>{t("contact.officeAddress.district")}</span>
+                  <span>{t("contact.officeAddress.postalCode")}</span>
                 </span>
+
+
+                {showPopup && (
+                  <div
+                    className="absolute animate-fade px-2 py-1 text-sm bg-black text-white rounded shadow-md z-50"
+                    style={{
+                      top: cursorPosition.y - 280,
+                      left: cursorPosition.x - 188,
+                    }}
+                  >
+                    {t("footer.copied")}
+                  </div>
+                )}
               </li>
+
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-200 flex-shrink-0" />
                 <a href="mailto:marketing@adviz.id" className="text-gray-400  hover:text-orange-400 transition-colors">
@@ -188,23 +239,26 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-gray-400 text-sm">
-              Â© {currentYear} <span className="text-orange-200">Adviz</span>. All rights reserved.
+              © {currentYear} <span className="text-orange-200">Adviz</span>. {t('footer.allRightsReserved')}
             </p>
 
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-              {['Privacy Policy', 'Terms of Service'].map((item) => (
+              {[
+                { label: t("footer.privacyPolicy"), path: "/privacy-policy" },
+                { label: t("footer.termsOfService"), path: "/terms-of-service" }
+              ].map((item) => (
                 <motion.a
-                  key={item}
-                  href={getPathByLabel(item)}
+                  key={item.label}
+                  href={item.path}
                   whileHover="hover"
                   variants={linkHoverVariants}
-                  className=" hover:text-orange-400 transition-colors"
+                  className="cursor-pointer hover:text-orange-400 transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </motion.a>
-                
               ))}
             </div>
+
           </div>
         </motion.div>
       </div>
