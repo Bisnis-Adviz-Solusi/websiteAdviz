@@ -267,5 +267,54 @@
         "desc": "Jumlah kewajiban dan ekuitas."
       }
     }
+  },
+  "calculator": {
+    "title": "Kalkulator PPH 21",
+    "form": {
+      "basicSalary": "Gaji Pokok",
+      "allowance": "Tunjangan dan Bonus",
+      "maritalStatus": "Status Perkawinan",
+      "selectStatus": "Pilih status",
+      "dependents": "Jumlah Tanggungan",
+      "selectDependents": "Pilih jumlah",
+      "calculate": "Hitung PPH 21",
+      "status": {
+        "TK": "Belum Kawin (TK)",
+        "K": "Kawin (K)"
+      }
+    },
+    "result": {
+      "title": "Hasil Perhitungan:",
+      "grossIncome": "Penghasilan Bruto",
+      "netAnnualIncome": "Penghasilan Netto Tahunan",
+      "ptkp": "PTKP",
+      "pkp": "PKP",
+      "monthlyPPH": "PPH 21 Perbulan"
+    }
+  },
+  "salaryCalculator": {
+    "title": "Kalkulator Gaji",
+    "form": {
+      "grossSalary": "Gaji Kotor Bulanan (IDR)",
+      "grossSalaryPlaceholder": "Masukkan gaji kotor",
+      "ptkpStatus": "Status PTKP"
+    },
+    "result": {
+      "title": "Rincian Gaji",
+      "grossSalary": "Gaji Kotor",
+      "incomeTax": "Pajak Penghasilan",
+      "bpjsKesehatan": "BPJS Kesehatan (1%)",
+      "bpjsJht": "BPJS JHT (2%)",
+      "bpjsJp": "BPJS JP (1%)",
+      "totalDeductions": "Total Potongan",
+      "netSalary": "Gaji Bersih"
+    },
+    "ptkpOptions": {
+      "single": "Lajang (TK/0)",
+      "married0": "Menikah (K/0)",
+      "married1": "Menikah (K/1)",
+      "married2": "Menikah (K/2)",
+      "married3": "Menikah (K/3)"
+    }
   }
 }

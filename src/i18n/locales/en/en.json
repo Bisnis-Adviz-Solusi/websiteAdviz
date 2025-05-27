@@ -270,5 +270,54 @@
         "desc": "Sum of liabilities and equity."
       }
     }
+  },
+  "calculator": {
+    "title": "PPH 21 Calculator",
+    "form": {
+      "basicSalary": "Basic Salary",
+      "allowance": "Allowance and Bonus",
+      "maritalStatus": "Marital Status",
+      "selectStatus": "Select status",
+      "dependents": "Number of Dependents",
+      "selectDependents": "Select number",
+      "calculate": "Calculate PPH 21",
+      "status": {
+        "TK": "Single (TK)",
+        "K": "Married (K)"
+      }
+    },
+    "result": {
+      "title": "Calculation Result:",
+      "grossIncome": "Gross Income",
+      "netAnnualIncome": "Annual Net Income",
+      "ptkp": "PTKP",
+      "pkp": "PKP",
+      "monthlyPPH": "Monthly PPH 21"
+    }
+  },
+  "salaryCalculator": {
+    "title": "Salary Calculator",
+    "form": {
+      "grossSalary": "Monthly Gross Salary (IDR)",
+      "grossSalaryPlaceholder": "Enter gross salary",
+      "ptkpStatus": "PTKP Status"
+    },
+    "result": {
+      "title": "Salary Breakdown",
+      "grossSalary": "Gross Salary",
+      "incomeTax": "Income Tax",
+      "bpjsKesehatan": "BPJS Kesehatan (1%)",
+      "bpjsJht": "BPJS JHT (2%)",
+      "bpjsJp": "BPJS JP (1%)",
+      "totalDeductions": "Total Deductions",
+      "netSalary": "Net Salary"
+    },
+    "ptkpOptions": {
+      "single": "Single (TK/0)",
+      "married0": "Married (K/0)",
+      "married1": "Married (K/1)",
+      "married2": "Married (K/2)",
+      "married3": "Married (K/3)"
+    }
   }
 }
