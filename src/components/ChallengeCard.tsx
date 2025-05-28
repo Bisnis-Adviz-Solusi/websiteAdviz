@@ -114,7 +114,7 @@ const FlipBox = () => {
 
 const FlipBox2 = () => {
   return (
-    <div className="justify-center block lg:hidden items-center w-full h-full ">
+    <div className="justify-center mt-11 block lg:hidden items-center w-full h-full ">
       <div className="flip-box w-80 h-48 md:w-96 md:h-48 transition-all duration-500  hover:scale-105">
         {/* Front Side */}
         <div className=" w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-500 rounded-xl shadow-2xl shadow-orange-500/30 border border-slate-300/70 dark:border-slate-600/50">

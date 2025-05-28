@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X } from "lucide-react";
 // import { Link } from 'react-router';
 import img from '../assets/logo.png';
 import Switch from './ui/switch';
@@ -7,7 +6,7 @@ import LangSwitch from './ui/langSwitch';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
   const prevScrollY = useRef(0);
@@ -59,19 +58,7 @@ const Navbar = () => {
             <Switch />
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-              ) : (
-                <Menu className="h-6 w-6 text-gray-600 dark:text-gray-300" />
-              )}
-            </button>
-          </div>
+        
         </div>
 
         {/* Mobile Menu */}
