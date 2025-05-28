@@ -108,7 +108,7 @@ const HilightMoblieCard = () => {
                                       : 'text-gray-600 dark:text-gray-400'
                                   } ${item.isSection ? 'font-medium' : ''} group-hover:text-black font-mono dark:group-hover:text-blue-400`}
                                 >
-                                  {item.title}
+                                  {t(item.title)}
                                 </span>
                               </div>
                               {item.value !== undefined && (
@@ -146,11 +146,11 @@ const HilightMoblieCard = () => {
                             <div className="flex items-center gap-2">
                               <HelpCircle className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                               <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                                {item.title}
+                                {t(item.title)}
                               </h4>
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-wrap break-words">
-                              {item.description}
+                              {t(item.description)}
                             </p>
                             {item.value !== undefined && (
                               <div className="flex items-center gap-2 mt-2 pt-2 border-t border-blue-500/20 dark:border-blue-400/20">
@@ -229,7 +229,7 @@ const HilightMoblieCard = () => {
                                       : 'text-gray-600 dark:text-gray-400'
                                   } ${item.isSection ? 'font-medium' : ''} group-hover:text-black dark:group-hover:text-blue-400`}
                                 >
-                                  {item.title}
+                                  {t(item.title)}
                                 </span>
                               </div>
                               {item.value !== undefined && (
@@ -267,11 +267,11 @@ const HilightMoblieCard = () => {
                             <div className="flex items-center gap-2">
                               <HelpCircle className="w-4 h-4 text-gray-600 dark:text-gray-300" />
                               <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                                {item.title}
+                                {t(item.title)}
                               </h4>
                             </div>
                             <p className="text-sm text-gray-600 dark:text-gray-300">
-                              {item.description}
+                              {t(item.description)}
                             </p>
                             {item.value !== undefined && (
                               <div className="flex items-center gap-2 mt-2 pt-2 border-t border-blue-500/20 dark:border-blue-400/20">
