@@ -6,7 +6,7 @@ import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
-import { BottomNav, Footer } from '@/components';
+import { BottomNav, Footer, Navbar } from '@/components';
 import { useTranslation } from 'react-i18next';
 
 // Separate component for the GLTF model
@@ -140,8 +140,10 @@ const ContactUs = () => {
 
   return (
 
-    <div className="flex flex-col min-h-screen dark:bg-slate-950 relative overflow-hidden gap-16 ">
-      <BottomNav />
+    <>
+    <Navbar/>
+    <BottomNav/>
+    <div className="min-h-screen lg:mx-10 mx-5  relative overflow-hidden">
       {/* Background Stars */}
       <div className="fixed inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 1] }}>
@@ -150,12 +152,12 @@ const ContactUs = () => {
       </div>
 
       {/* Rest of your component JSX... */}
-      <div className="relative z-10 w-full max-w-7xl mt-32 mx-auto rounded-3xl p-8  bg-white/30 dark:bg-slate-900/70 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
+          <div className="relative  z-10 w-full  lg:mt-32 mt-20 mx-auto rounded-3xl p-3 bg-white/20 dark:bg-slate-900/50 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
         {/* Company Profile Section */}
         <section className="relative py-12">
-          <div className="relative container mx-auto">
+          <div className="relative container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="select-none cursor-default text-5xl md:text-6xl font-extrabold pb-4 bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
+              <h1 className="select-none cursor-default  md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-orange-600 dark:from-blue-400 dark:to-orange-400 bg-clip-text text-transparent transform hover:scale-105 transition-transform duration-300">
                 {t('contact.contactUs')}
               </h1>
               <p className="select-none cursor-default text-xl text-gray-600 dark:text-gray-300 animate-fade-in">
@@ -167,18 +169,18 @@ const ContactUs = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 px-4">
+        <section className="py-16 lg:px-4 px-0">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Contact Information */}
-              <div className="space-y-8">
-                <div className="select-none space-y-6">
+              <div className="space-y-6">
+                <div className="select-none space-y-8">
                   {contactItems.map((item, index) => (
                     <div
                       key={index}
                       onMouseEnter={() => setHoverIndex(index)}
                       onMouseLeave={() => setHoverIndex(null)}
-                      className="flex items-start space-x-4 p-6 rounded-xl bg-gray-50/50 dark:bg-gray-700/30 
+     className="flex items-start lg:space-x-4 space-x-2 lg:p-6 p-3 rounded-xl bg-gray-50/50 dark:bg-gray-700/30 
                                hover:bg-white dark:hover:bg-gray-700/50 transition-all duration-300
                                hover:shadow-lg hover:scale-102 transform cursor-pointer"
                     >
@@ -212,9 +214,9 @@ const ContactUs = () => {
         </section>
 
         {/* Map Section */}
-        <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
+            <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
+      <div className="container mx-auto">
+        <div className="max-w-4xl mx-auto">
               <h2 className="select-none cursor-default text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
                 {t('contact.findUs')}
               </h2>
@@ -261,6 +263,8 @@ const ContactUs = () => {
       </div>
       <Footer />
     </div>
+    </>
+      
   );
 };
 

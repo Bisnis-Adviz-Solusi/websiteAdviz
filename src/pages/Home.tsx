@@ -1,4 +1,4 @@
-import { useEffect, useRef, Suspense, } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
 // import { Smartphone, Layers, FileText } from 'lucide-react';
 import {
@@ -27,9 +27,10 @@ import { BottomNav, ChallengeSection, Footer, HilightMoblieCard, HillightCard, N
 import bg from '@/assets/bg6.mp4';
 import bg2 from '@/assets/bg8.mp4';
 import { useTranslation } from 'react-i18next';
-
+import { SplitText } from 'gsap/SplitText';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 
 const Scene = () => {
   const gltf = useLoader(GLTFLoader, '/models/adviz.glb');
@@ -68,6 +69,8 @@ const Loader = () => {
     </Html>
   );
 };
+
+
 
 const FloatingIcon = ({ icon: Icon, color, delay, duration = 10 }: { icon: LucideIcon; color: string; delay: number; duration?: number }) => (
   <motion.div
@@ -122,9 +125,56 @@ const Home = () => {
   const model3DRef = useRef(null);
   const featureCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const brandCardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const sequence = [
-    t('home.heroText')
-  ];
+
+  const splitTextRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (!splitTextRef.current) return;
+
+    const split = new SplitText(splitTextRef.current, {
+      type: "chars,words",
+    });
+
+    // Initial Animasi: masuk dari bawah secara stagger
+    gsap.from(split.chars, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.02,
+      ease: "back.out(1.7)",
+    });
+
+    // Animasi Hover (trigger saat mouse masuk & keluar)
+    const hoverEnter = () => {
+      gsap.to(split.chars, {
+        yPercent: -30,
+        color: "#F97316",
+        duration: 0.3,
+        stagger: 0.01,
+        ease: "power2.out",
+      });
+    };
+
+    const hoverLeave = () => {
+      gsap.to(split.chars, {
+        yPercent: 0,
+        color: "",
+        duration: 0.3,
+        stagger: 0.01,
+        ease: "power2.inOut",
+      });
+    };
+
+    const currentEl = splitTextRef.current;
+    currentEl.addEventListener('mouseenter', hoverEnter);
+    currentEl.addEventListener('mouseleave', hoverLeave);
+
+    return () => {
+      split.revert();
+      currentEl.removeEventListener('mouseenter', hoverEnter);
+      currentEl.removeEventListener('mouseleave', hoverLeave);
+    };
+  }, []);
 
 
 
@@ -406,11 +456,10 @@ const Home = () => {
                         <span className="absolute top-0 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600 animate-pulse" />
                         <div className="text-base sm:text-lg lg:text-xl h-auto sm:h-28 text-gray-500 dark:text-gray-400 pl-3 relative">
                           <span>
-                            <TypeAnimation
-                              sequence={sequence}
-                              speed={40}
+                            <p
+                              ref={splitTextRef}
                               className="w-full h-full"
-                            />
+                            >{t("home.heroText")}</p>
                           </span>
                         </div>
                         {/* <span className="absolute inset-0 blur-lg bg-gradient-to-r dark:from-cyan-400/20 dark:to-blue-500/20 from-orange-900/0 to-orange-400/0" /> */}
