@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 // import Map, { Marker } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
