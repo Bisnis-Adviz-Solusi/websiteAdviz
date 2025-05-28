@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import Map, { Marker } from 'react-map-gl';
+// import Map, { Marker } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
@@ -8,6 +8,15 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 import { BottomNav, Footer, Navbar } from '@/components';
 import { useTranslation } from 'react-i18next';
+import L from 'leaflet';
+import iconUrl from 'leaflet/dist/images/marker-icon.png';
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+import LeafletMap from '@/components/MapContact';
+
+L.Marker.prototype.options.icon = L.icon({
+  iconUrl,
+  shadowUrl,
+});
 
 // Separate component for the GLTF model
 const Scene = () => {
@@ -68,7 +77,7 @@ const StarBackground = () => {
 const ContactUs = () => {
   const [isDark, setIsDark] = useState(false);
   const [, setHoverIndex] = useState<number | null>(null);
-  const token = import.meta.env.VITE_APP_MAPBOX_ACCESS_TOKEN;
+  // const token = import.meta.env.VITE_APP_MAPBOX_ACCESS_TOKEN;
   const { t } = useTranslation();
   useEffect(() => {
     const checkTheme = () => {
@@ -84,24 +93,24 @@ const ContactUs = () => {
     return () => observer.disconnect();
   }, []);
 
-  const mapConfig = {
-    longitude: 106.83902712917678,
-    latitude: -6.193666433316111,
-    zoom: 15,
-    markers: [
-      {
-        longitude: 106.83902712917678,
-        latitude: -6.193666433316111,
-        title: t('contact.buildingName'),
-      },
-    ],
-  };
+  // const mapConfig = {
+  //   longitude: 106.83902712917678,
+  //   latitude: -6.193666433316111,
+  //   zoom: 15,
+  //   markers: [
+  //     {
+  //       longitude: 106.83902712917678,
+  //       latitude: -6.193666433316111,
+  //       title: t('contact.buildingName'),
+  //     },
+  //   ],
+  // };
 
-  const mapContainerStyle = {
-    width: '100%',
-    height: '500px',
-    borderRadius: '12px'
-  };
+  // const mapContainerStyle = {
+  //   width: '100%',
+  //   height: '500px',
+  //   borderRadius: '12px'
+  // };
 
   const contactItems = [
     {
@@ -214,52 +223,25 @@ const ContactUs = () => {
         </section>
 
         {/* Map Section */}
-            <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
-              <h2 className="select-none cursor-default text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
-                {t('contact.findUs')}
-              </h2>
-              <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
-                {token ? (
-                  <Map
-                    mapboxAccessToken={token}
-                    initialViewState={{
-                      longitude: mapConfig.longitude,
-                      latitude: mapConfig.latitude,
-                      zoom: mapConfig.zoom,
-                    }}
-                    style={mapContainerStyle}
-                    mapStyle={
-                      isDark
-                        ? "mapbox://styles/mapbox/dark-v11"
-                        : "mapbox://styles/mapbox/streets-v12"
-                    }
-                    interactive={true} // Pastikan interaktif diaktifkan
-                  >
-                    {mapConfig.markers.map((marker, index) => (
-                      <Marker
-                        key={index}
-                        longitude={marker.longitude}
-                        latitude={marker.latitude}
-                        anchor="bottom"
-                        offset={[0, -20]}
-                      >
-                        <div className="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600/90 dark:bg-orange-400/90 animate-pulse">
-                          <MapPin className="w-5 h-5 text-white dark:text-gray-900" />
-                        </div>
-                      </Marker>
-                    ))}
-                  </Map>
-                ) : (
-                  <div className=" select-none cursor-default h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-500">
-                    {t('warning.undefined')}
-                  </div>
-                )}
+          <section className="py-16 px-4 border-t border-gray-200/50 dark:border-gray-700/50">
+            <div className="container mx-auto">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="select-none cursor-default text-3xl font-bold mb-8 text-center text-gray-800 dark:text-white">
+                  {t('contact.findUs')}
+                </h2>
+                <div className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+    
+                  {typeof window !== 'undefined' ? (
+                    <LeafletMap isDark={isDark} />
+                  ) : (
+                    <div className="select-none cursor-default h-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-500">
+                      {t('warning.undefined')}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
       </div>
       <Footer />
     </div>

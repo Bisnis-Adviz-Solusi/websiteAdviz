@@ -5,6 +5,8 @@ import { About, Contact, NotFoundPage, OurServices, LoadingScreen, Home, TermsOf
 import { PPH21Calculator } from "./components/simulation";
 import { Navbar } from "./components";
 import "./i18n/i18nConfig";
+import 'leaflet/dist/leaflet.css';
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
