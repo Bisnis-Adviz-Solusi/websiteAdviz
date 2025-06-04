@@ -52,9 +52,9 @@
     },
     "hilightCard": {
       "balanceSheet": "资产负债表",
-      "period": "期间：截至 2024 年 1 月 31 日",
+      "period": "2024年12月31日",
       "profitLoss": "损益表",
-      "periodProfit": "期间：2024 年 1 月 31 日",
+      "periodProfit": "2024年1月期间",
       "descPL": "总结收入、销售成本、费用及其他项目的报表",
       "descBS": "在某一特定时间点展示资产、负债和所有者权益的报表",
       "flipbox": {

@@ -128,7 +128,7 @@ const ContactUs = () => {
     {
       icon: <Phone className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
       title: t('contact.phoneNumber'),
-      content: "+62 21 1234 5678"
+      content: "0812 9999 6119"
     },
     {
       icon: <Mail className="w-6 h-6 text-orange-600 dark:text-orange-400" />,
@@ -243,8 +243,8 @@ const ContactUs = () => {
             </div>
           </section>
       </div>
-      <Footer />
     </div>
+      <Footer />
     </>
       
   );

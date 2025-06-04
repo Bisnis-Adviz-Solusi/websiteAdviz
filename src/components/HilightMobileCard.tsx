@@ -83,12 +83,12 @@ const HilightMoblieCard = () => {
                   </div>
                 </div>
                   
-                <div className="h-96 lg:h-96 lg:w-[90%]  dark:bg-black mt-4 shadow-xl  p-2  bg-white rounded-xl">
+                <div className="h-full lg:h-96 lg:w-[90%]  dark:bg-black mt-4 shadow-xl  p-2 mb-14 bg-white rounded-xl">
                   {items.map((item, index) => (
                     <HoverCard key={index} openDelay={100} closeDelay={100} open={isMobile ? openHoverCardIndex === `pl-${index}` : undefined}>
                       <HoverCardTrigger asChild>
                         <div
-                          className={`group relative h-[1.3rem] flex items-center cursor-pointer text-xs lg:text-sm ${
+                          className={`group relative h-[1.6rem] flex items-center cursor-pointer text-xs lg:text-sm ${
                             item.isHighlight
                               ? 'bg-orange-50/80 dark:bg-orange-900/20'
                               : item.isSection

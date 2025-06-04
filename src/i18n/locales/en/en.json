@@ -55,9 +55,9 @@
     },
     "hilightCard": {
       "balanceSheet": "Balance Sheet",
-      "period": "Period: As of 31 January 2024",
+      "period": "As of 31 January 2024",
       "profitLoss": "Profit and Loss",
-      "periodProfit": "Period: 31 January 2024",
+      "periodProfit": "For the Period of January 2024",
       "descPL": "A statement that summarizes revenue, cost of goods sold, expenses, and any other items",
       "descBS": "A statement of the assets, liabilities, and equity at one point of time",
       "flipbox": {

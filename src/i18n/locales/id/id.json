@@ -52,9 +52,9 @@
     },
     "hilightCard": {
       "balanceSheet": "Neraca Keuangan",
-      "period": "Periode: Per 31 Januari 2024",
+      "period": "Per 31 Januari 2024",
       "profitLoss": "Laba Rugi",
-      "periodProfit": "Periode: 31 Januari 2024",
+      "periodProfit": "untuk periode Januari 2024",
       "descPL": "Ringkasan pendapatan, harga pokok penjualan, beban, dan item lainnya",
       "descBS": "Laporan aset, kewajiban, dan ekuitas pada satu waktu tertentu",
       "flipbox": {

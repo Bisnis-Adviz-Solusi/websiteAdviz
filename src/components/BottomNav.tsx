@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { 
-  BiHomeAlt2, 
+import {
+  BiHomeAlt2,
   // BiBriefcase,
-  BiEnvelope, 
-  BiCalculator,
+  BiEnvelope,
+  // BiCalculator,
   // BiBuildings
 } from 'react-icons/bi';
 import { Link, useLocation } from 'react-router';
@@ -27,7 +27,7 @@ const navLinks: NavLinkType[] = [
   // { id: 'services', label: 'Services', path: '/services', icon: BiBriefcase },
   { id: '/', label: 'Home', path: '/', icon: BiHomeAlt2 },
   { id: 'contact', label: 'Contact', path: '/contact', icon: BiEnvelope },
-  { id: 'simulation', label: 'Simulation', path: '/simulation', icon: BiCalculator },
+  // { id: 'simulation', label: 'Simulation', path: '/simulation', icon: BiCalculator },
 ];
 
 const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|:<>?";
@@ -47,10 +47,10 @@ const Nav = () => {
   // Set active link based on current path when component mounts or route changes
   useEffect(() => {
     const currentPath = location.pathname;
-    
+
     // Find the matching nav link for current path
     const matchingLink = navLinks.find(link => link.path === currentPath);
-    
+
     // Set the active link to the matching link's id, or default to home if no match
     if (matchingLink) {
       setActiveLink(matchingLink.id);
@@ -59,7 +59,7 @@ const Nav = () => {
       const matchingParentLink = navLinks.find(
         link => link.path !== '/' && currentPath.startsWith(link.path)
       );
-      
+
       if (matchingParentLink) {
         setActiveLink(matchingParentLink.id);
       } else {
@@ -78,11 +78,11 @@ const Nav = () => {
 
       if (window.scrollY > lastScrollY && window.scrollY > 150) {
         setShowNav(false);
-      } 
+      }
       else if (window.scrollY < lastScrollY || hasScrolled) {
         setShowNav(true);
       }
-      
+
       setLastScrollY(window.scrollY);
     };
 
@@ -98,37 +98,37 @@ const Nav = () => {
     setIsExpanded(true);
     setTimeout(() => setIsExpanded(false), 500);
   };
-  
+
   interface ScrambleParams {
     id: string;
   }
 
   const startScrambleAnimation = ({ id }: ScrambleParams): void => {
     if (!labelRefs.current[id] || typeof window === 'undefined') return;
-    
+
     const element: HTMLSpanElement = labelRefs.current[id];
     const originalText: string = element.innerText;
     const duration: number = 1.2;
-    
+
     // Kill any existing animation for this element
     if (id in scrambleTimelines.current) {
       scrambleTimelines.current[id].kill();
     }
-    
+
     // Create a new timeline for this animation
     const tl: gsap.core.Timeline = gsap.timeline();
     scrambleTimelines.current[id] = tl;
-    
+
     const iterations: number = Math.ceil(duration * 10); // Number of scramble iterations
     let scrambledText: string = '';
-    
+
     // Initialize the scrambled text with random characters
     for (let i: number = 0; i < originalText.length; i++) {
       scrambledText += getRandomChar();
     }
-    
+
     element.innerText = scrambledText;
-    
+
     // Gradually reveal the original characters
     for (let i: number = 0; i < iterations; i++) {
       tl.add((): void => {
@@ -143,7 +143,7 @@ const Nav = () => {
         element.innerText = newText;
       }, i * (duration / iterations));
     }
-    
+
     tl.add((): void => {
       element.innerText = originalText;
     }, duration);
@@ -155,23 +155,22 @@ const Nav = () => {
 
   const stopScrambleAnimation = ({ id }: ScrambleAnimationParams): void => {
     if (!labelRefs.current[id] || typeof window === 'undefined') return;
-    
+
     const element = labelRefs.current[id];
     element.innerText = navLinks.find(link => link.id === id)?.label || '';
-    
+
     if (id in scrambleTimelines.current) {
       scrambleTimelines.current[id].kill();
     }
   };
 
   return (
-    <nav 
-      className={`fixed bottom-3 mb-5 lg:mb-5   lg:bottom-6 w-full z-50 transition-all duration-500 ${
-        showNav ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
-      }`}
+    <nav
+      className={`fixed bottom-3 mb-5 lg:mb-5   lg:bottom-6 w-full z-50 transition-all duration-500 ${showNav ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+        }`}
     >
       <div className="container mx-auto lg:px-0 px-4">
-        <div 
+        <div
           className={`
             w-full dark:bg-blue-500/20 shadow-md dark:shadow-sky-500 shadow-orange-700 bg-gray-500/20 backdrop-blur-sm p-2 rounded-full max-w-[220px] mx-auto px-4 
             flex justify-between items-center text-white border border-white/10 
@@ -186,7 +185,7 @@ const Nav = () => {
             transition-opacity duration-500 ease-in-out rounded-full
             ${isExpanded ? 'opacity-100' : 'opacity-0'}
           `}></div>
-          
+
           {/* Animated light beam effect */}
           <div className="absolute inset-0 overflow-hidden rounded-full">
             <div className={`
@@ -203,9 +202,9 @@ const Nav = () => {
               const Icon = link.icon;
               const isActive = activeLink === link.id;
               const isHovered = hoverLink === link.id;
-              
+
               return (
-                <div 
+                <div
                   key={link.id}
                   className="relative group cursor-pointer flex flex-col items-center justify-center"
                   onMouseEnter={() => {
@@ -217,7 +216,7 @@ const Nav = () => {
                     stopScrambleAnimation({ id: link.id });
                   }}
                 >
-                  <Link 
+                  <Link
                     to={link.path}
                     onClick={() => handleLinkClick(link.id)}
                     className="flex items-center justify-center"
@@ -240,12 +239,12 @@ const Nav = () => {
                         ${isActive ? 'shadow-sm shadow-orange-500/50' : ''}
                         ${isHovered ? 'shadow-sm shadow-orange-500/30' : ''}
                       `}></div>
-                      
+
                       {/* Rotating outer circle for active item */}
                       {isActive && (
                         <div className="absolute inset-[-3px] rounded-full border border-dashed border-orange-400/30 animate-spin-slow"></div>
                       )}
-                      
+
                       <div
                         className={`
                           text-xl transition-all duration-300 z-10
@@ -257,9 +256,9 @@ const Nav = () => {
                       </div>
                     </div>
                   </Link>
-                  
+
                   {/* Label tooltip with scramble effect positioned above with sufficient space */}
-                  <div 
+                  <div
                     className={`
                       absolute pointer-events-none left-1/2 transform -translate-x-1/2 -top-14
                       transition-all duration-300 min-w-max
@@ -267,7 +266,7 @@ const Nav = () => {
                     `}
                   >
                     <div className="flex flex-col items-center">
-                      <span 
+                      <span
                         ref={el => labelRefs.current[link.id] = el}
                         className={`
                           px-3 py-1 rounded-xl shadow-md  dark:shadow-blue-500  text-md font-medium tracking-wider font-mono
@@ -278,7 +277,7 @@ const Nav = () => {
                         {link.label}
                       </span>
                       {/* Triangle pointer */}
-                      <div 
+                      <div
                         className={`
                           h-2 w-2 rotate-45 mt-0.5
                           ${isActive ? 'bg-orange-500/70' : 'bg-slate-500/80'}
